@@ -15,3 +15,9 @@ dependencyResolutionManagement {
 rootProject.name = "Demos-AndroidCoreLibs"
 include ':app'
 include ':retrofit'
+include ':okhttp'
+include ':rxjava'
+include ':glide'
+include ':recyclerview'
+include ':animation'
+include ':customview'
