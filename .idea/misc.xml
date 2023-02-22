@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/lizw/Desktop/mystudio/projects/myprojects/Demos-AndroidCoreLibs/retrofit/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="recyclerview/src/main/res/layout/activity_main.xml" value="0.3079710144927536" />
+        <entry key="recyclerview/src/main/res/layout/activity_multi_type.xml" value="0.3079710144927536" />
+        <entry key="recyclerview/src/main/res/layout/item_grid_view.xml" value="0.3079710144927536" />
+        <entry key="recyclerview/src/main/res/menu/menu.xml" value="0.3890625" />
       </map>
     </option>
   </component>
