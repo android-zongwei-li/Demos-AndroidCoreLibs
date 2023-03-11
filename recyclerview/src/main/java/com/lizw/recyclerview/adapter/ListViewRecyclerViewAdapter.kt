@@ -1,73 +1,55 @@
 package com.lizw.recyclerview.adapter
 
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import com.lizw.recyclerview.Data
+import com.lizw.recyclerview.Model
 import com.lizw.recyclerview.R
+import com.lizw.recyclerview.base.BaseRecyclerViewAdapter
+import com.lizw.recyclerview.base.BaseViewHolder
 import com.lizw.recyclerview.beans.ItemBean
+import com.lizw.recyclerview.viewholder.AViewHolder
+import java.util.*
 
 /**
  * 用于
  *
  * author: zongwei.li created on: 2022/6/6
  */
-class ListViewRecyclerViewAdapter(data: List<ItemBean>?) :
-    BaseRecyclerViewAdapter(data) {
-    var mOnRefreshListener: OnRefreshListener? = null
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = getSubView(parent, viewType)
+class ListViewRecyclerViewAdapter(data: List<ItemBean>) : BaseRecyclerViewAdapter<ItemBean>(data) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ItemBean> {
         return if (viewType == TYPE_NORMAL) {
-            InnerViewHolder(view)
+            AViewHolder(View.inflate(parent.context, R.layout.item_list_view, null))
         } else {
-            val loaderMoreHolder = LoaderMoreHolder(view)
+            val loaderMoreHolder = LoaderMoreHolder(View.inflate(parent.context, R.layout.item_load_more, null))
             loaderMoreHolder.update(LOADER_STATE_LOADING)
             loaderMoreHolder
         }
     }
-
-    override fun getSubView(parent: ViewGroup?, viewType: Int): View {
-        var view: View? = null
-        if (parent != null) {
-            view = if (viewType == TYPE_NORMAL) {
-                View.inflate(parent.context, R.layout.item_list_view, null)
-            } else {
-                View.inflate(parent.context, R.layout.item_load_more, null)
-            }
-        }
-        return view!!
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (getItemViewType(position) == TYPE_NORMAL && holder is InnerViewHolder) {
-            holder.setData(mData!![position], position)
-        } else {
-            (holder as LoaderMoreHolder).update(LOADER_STATE_LOADING)
-        }
-    }
-
+    
     override fun getItemViewType(position: Int): Int {
         return if (position == itemCount - 1) {
             TYPE_LOADER_MORE
         } else TYPE_NORMAL
     }
-
-    fun setOnRefreshListener(listener: OnRefreshListener?) {
-        mOnRefreshListener = listener
-    }
-
-    interface OnRefreshListener {
-        fun onUpPullRefresh(loaderMoreHolder: LoaderMoreHolder?)
-    }
-
-    inner class LoaderMoreHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    
+    inner class LoaderMoreHolder(itemView: View) : BaseViewHolder<ItemBean>(itemView) {
         private var llLoading: LinearLayout = itemView.findViewById(R.id.ll_loading)
         private var tvReload: TextView = itemView.findViewById(R.id.tv_reload)
-
+        
+        override fun onBindViewHolder(position: Int, itemData: ItemBean) {
+            update(LOADER_STATE_LOADING)
+        }
+        
         fun update(state: Int) {
             //重置控件状态
             llLoading.visibility = View.GONE
+            
+            tvReload.setOnClickListener { update(LOADER_STATE_LOADING) }
             tvReload.visibility = View.GONE
             when (state) {
                 LOADER_STATE_LOADING -> {
@@ -84,22 +66,27 @@ class ListViewRecyclerViewAdapter(data: List<ItemBean>?) :
                 else -> {}
             }
         }
-
+        
         private fun startLoadMore() {
-            if (mOnRefreshListener != null) {
-                mOnRefreshListener!!.onUpPullRefresh(this)
-            }
-        }
-
-        init {
-            tvReload.setOnClickListener { update(LOADER_STATE_LOADING) }
+            // 上拉加载
+            Handler(Looper.getMainLooper()).postDelayed({ //刷新停止，更新列表
+                val random = Random()
+                if (random.nextInt() % 2 == 0) {
+                    Model.loadNewDataEnd()
+                    
+                    notifyItemChanged(Model.itemData.size - 1)
+                    update(LOADER_STATE_NORMAL)
+                } else {
+                    update(LOADER_STATE_RELOAD)
+                }
+            }, 1000L)
         }
     }
-
+    
     companion object {
         const val TYPE_NORMAL = 0
         const val TYPE_LOADER_MORE = 1
-
+        
         const val LOADER_STATE_LOADING = 0
         const val LOADER_STATE_RELOAD = 1
         const val LOADER_STATE_NORMAL = 2

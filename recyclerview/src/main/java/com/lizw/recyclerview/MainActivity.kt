@@ -5,30 +5,18 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.lizw.recyclerview.beans.ItemBean
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var itemData: ArrayList<ItemBean>
-    
-    private lateinit var rv: RecyclerView
     private lateinit var rvInitializer: RecyclerViewInitializer
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
         
-        rv = findViewById(R.id.recycler_view)
-        
-        itemData = Model.loadData().itemData
-        
-        rvInitializer = RecyclerViewInitializer(rv, itemData)
+        rvInitializer = RecyclerViewInitializer(findViewById(R.id.recycler_view), Model.loadData().itemData)
         rvInitializer.showList()
         
-        rvInitializer.initHandlerDownPullUpdate(swipeRefreshLayout)
+        rvInitializer.initHandlerDownPullUpdate(findViewById(R.id.swipe_refresh_layout))
     }
     
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

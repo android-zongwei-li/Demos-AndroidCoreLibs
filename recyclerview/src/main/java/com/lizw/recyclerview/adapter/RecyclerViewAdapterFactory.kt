@@ -1,5 +1,6 @@
 package com.lizw.recyclerview.adapter
 
+import com.lizw.recyclerview.base.BaseRecyclerViewAdapter
 import com.lizw.recyclerview.beans.ItemBean
 
 /**
@@ -13,11 +14,11 @@ class RecyclerViewAdapterFactory {
         GRID,       // 表格
         STAGGER     // 瀑布流
     }
-
+    
     fun getAdapter(
-        data: List<ItemBean>,
-        type: RecyclerViewAdapterType
-    ): BaseRecyclerViewAdapter {
+            data: List<ItemBean>,
+            type: RecyclerViewAdapterType,
+    ): BaseRecyclerViewAdapter<ItemBean> {
         return when (type) {
             RecyclerViewAdapterType.LIST -> ListViewRecyclerViewAdapter(data)
             RecyclerViewAdapterType.GRID -> GridViewRecyclerViewAdapter(data)

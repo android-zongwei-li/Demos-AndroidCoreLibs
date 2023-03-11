@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.lizw.recyclerview.adapter.BaseRecyclerViewAdapter
+import com.lizw.recyclerview.base.BaseRecyclerViewAdapter
 import com.lizw.recyclerview.adapter.GridViewRecyclerViewAdapter
 import com.lizw.recyclerview.adapter.ListViewRecyclerViewAdapter
 import com.lizw.recyclerview.adapter.StaggerAdapter
@@ -20,7 +20,7 @@ import java.util.*
  * author: zongwei.li created on: 2022/7/8
  */
 class RecyclerViewInitializer(private val rv: RecyclerView, private val itemData: List<ItemBean>) {
-    private var mAdapter: BaseRecyclerViewAdapter? = null
+    private var mAdapter: BaseRecyclerViewAdapter<ItemBean>? = null
     
     /**
      * 显示ListView的效果
@@ -28,7 +28,6 @@ class RecyclerViewInitializer(private val rv: RecyclerView, private val itemData
     fun showList(vertical: Boolean = true, reverse: Boolean = false) {
         mAdapter = ListViewRecyclerViewAdapter(itemData)
         rv.adapter = mAdapter
-        initListener()
         
         val layoutManager = LinearLayoutManager(rv.context).apply {
             orientation =
@@ -45,7 +44,6 @@ class RecyclerViewInitializer(private val rv: RecyclerView, private val itemData
     fun showGrid(spanCount: Int, vertical: Boolean = true, reverse: Boolean = false) {
         mAdapter = GridViewRecyclerViewAdapter(itemData)
         rv.adapter = mAdapter
-        initListener()
         
         val gridLayoutManager = GridLayoutManager(rv.context, spanCount).apply {
             orientation =
@@ -62,7 +60,6 @@ class RecyclerViewInitializer(private val rv: RecyclerView, private val itemData
     fun showStagger(spanCount: Int, vertical: Boolean = true, reverse: Boolean = false) {
         mAdapter = StaggerAdapter(itemData)
         rv.adapter = mAdapter
-        initListener()
         
         val staggeredGridLayoutManager = StaggeredGridLayoutManager(
                 spanCount,
@@ -71,38 +68,6 @@ class RecyclerViewInitializer(private val rv: RecyclerView, private val itemData
             reverseLayout = reverse
         }
         rv.layoutManager = staggeredGridLayoutManager
-    }
-    
-    private fun initListener() {
-        mAdapter?.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener {
-            override fun onItemClick(position: Int) {
-                Toast.makeText(
-                        rv.context,
-                        "点击了第" + position + "个",
-                        Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
-        
-        //处理上拉加载更多
-        if (mAdapter is ListViewRecyclerViewAdapter) {
-            (mAdapter as ListViewRecyclerViewAdapter).setOnRefreshListener(object :
-                    ListViewRecyclerViewAdapter.OnRefreshListener {
-                override fun onUpPullRefresh(loaderMoreHolder: ListViewRecyclerViewAdapter.LoaderMoreHolder?) {
-                    Handler(Looper.getMainLooper()).postDelayed({ //刷新停止，更新列表
-                        val random = Random()
-                        if (random.nextInt() % 2 == 0) {
-                            Model.loadNewDataEnd()
-                            
-                            (mAdapter as ListViewRecyclerViewAdapter).notifyItemChanged(Model.itemData.size - 1)
-                            loaderMoreHolder?.update(ListViewRecyclerViewAdapter.LOADER_STATE_NORMAL)
-                        } else {
-                            loaderMoreHolder?.update(ListViewRecyclerViewAdapter.LOADER_STATE_RELOAD)
-                        }
-                    }, 2000L)
-                }
-            })
-        }
     }
     
     fun initHandlerDownPullUpdate(swipeRefreshLayout: SwipeRefreshLayout) {
