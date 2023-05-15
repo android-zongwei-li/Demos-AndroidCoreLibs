@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemosAndroidCoreLibs">
-        <activity
-            android:name=".customview.CustomViewActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,6 +19,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- package start : customview -->
+        <activity
+            android:name=".customview.CustomViewActivity"
+            android:exported="false" />
+        <!-- package end : customview -->
+
+        <!-- package start : recycler view -->
+        <activity
+            android:name=".recyclerview.RecyclerViewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".recyclerview.MultiTypeActivity"
+            android:exported="false" />
+        <!-- package end : recycler view -->
+
     </application>
 
 </manifest>
