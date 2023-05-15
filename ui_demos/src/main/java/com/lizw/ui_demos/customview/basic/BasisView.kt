@@ -268,7 +268,7 @@ class BasisView : View {
         fun drawPath(canvas: Canvas) {
             paint.style = Paint.Style.STROKE
             
-            when (5) {
+            when (3) {
                 1 -> {
                     // 4.1 直线路径
                     path.moveTo(10f, 10f)
