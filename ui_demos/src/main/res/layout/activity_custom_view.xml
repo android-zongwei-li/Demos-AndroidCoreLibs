@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.lizw.customview.basic.BasisView
+    <com.lizw.ui_demos.customview.basic.BasisView
         android:id="@+id/view_basis"
         android:layout_width="200dp"
         android:layout_height="200dp"

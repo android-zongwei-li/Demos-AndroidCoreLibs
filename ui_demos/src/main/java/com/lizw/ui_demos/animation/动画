@@ -1,0 +1,8 @@
+一、动画分类
+View Animation 和 Property Animation 两大类。
+1、View Animation（视图动画）
+包括帧动画（Frame Animation）、补间动画（Tween Animation）
+2、Property Animation（属性动画）
+包括 ValueAnimator 、ObjectAnimator
+
+二、

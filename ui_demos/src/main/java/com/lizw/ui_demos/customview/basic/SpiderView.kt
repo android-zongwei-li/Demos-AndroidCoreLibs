@@ -1,4 +1,4 @@
-package com.lizw.customview.basic
+package com.lizw.ui_demos.customview.basic
 
 import android.content.Context
 import android.graphics.Color

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customview.PreviewActivity">
+
+    <!-- View 标题-->
+    <TextView
+        android:id="@+id/tv_view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_view_title" />
+
+    <!-- View 展示面板 -->
+    <FrameLayout
+        android:id="@+id/fl_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_only_stroke">
+
+        <com.lizw.ui_demos.customview.view.BasisView
+            android:id="@+id/view_basis"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="gone" />
+
+        <!--        <com.lizw.ui.customview.view.FingerView-->
+        <!--            android:id="@+id/view_finger"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="100dp"-->
+        <!--            android:background="@drawable/bg_gradient_color"-->
+        <!--            android:visibility="gone" />-->
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="100dp"
+            android:background="@color/colorAccent"
+            android:visibility="gone" />
+
+        <com.lizw.ui_demos.customview.gestureview.NormalGestureTrackView
+            android:id="@+id/track_view_normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.lizw.ui_demos.customview.view.AnimWaveView
+            android:id="@+id/animWaveView"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -3,6 +3,17 @@
 
     <string name="text_title">标题</string>
 
+    <string name="frame_animation">帧动画</string>
+    <string name="tween_animation">补间动画</string>
+    <string name="animation_page">动画页面</string>
+    <string name="start">开始</string>
+    <string name="stop">停止</string>
+    <string name="ui_basic_page">UI基础</string>
+    <string name="tv_view_title">tv_view_title</string>
+    <string name="finger_view">FingerView</string>
+    <string name="basis_view">BasisView</string>
+
+
     <!-- RecyclerView demo start-->
     <string name="activity_label_recycler_view">RecyclerViewDemo</string>
     <string name="list_view_style">List效果</string>

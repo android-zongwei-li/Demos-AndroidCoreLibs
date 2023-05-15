@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">aidlclient</string>
+
+    <string name="bind_service">Bind Service</string>
+    <string name="unbind_service">Unbind Service</string>
+
+    <string name="remote_service_binding">This demonstrates how you can connect with a persistent
+        service running in another process.  Use the kill button to see what happens when
+        the process crashes.</string>
+    <string name="kill_process">Kill Process</string>
+    <string name="remote_service_connected">Connected to remote service</string>
+    <string name="remote_service_disconnected">Disconnected from remote service</string>
+    <string name="remote_service_unbind_disconn">Unbinding due to disconnect</string>
+    <string name="remote_call_failed">Failure calling remote service</string>
+    <string name="callback">callback</string>
+
+    <string name="bind_book_service">bind book service</string>
+</resources>

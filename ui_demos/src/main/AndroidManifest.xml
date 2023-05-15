@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lizw.ui_demos">
+    <!-- for FloatWindowActivity -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemosAndroidCoreLibs">
-
+        <activity
+            android:name=".ui.UiHomeActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,23 +22,51 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- package start : customview -->
+        </activity> <!-- package start : customview -->
         <activity
             android:name=".customview.CustomViewActivity"
-            android:exported="false" />
-        <!-- package end : customview -->
-
+            android:exported="false" /> <!-- package end : customview -->
         <!-- package start : recycler view -->
         <activity
             android:name=".recyclerview.RecyclerViewActivity"
             android:exported="false" />
-
         <activity
             android:name=".recyclerview.MultiTypeActivity"
             android:exported="false" />
-        <!-- package end : recycler view -->
+
+        <activity
+            android:name=".loading.LoadingActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="client"
+                    android:scheme="lark" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".animation.AnimationActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".animation.FrameAnimationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customview.weatherview.WeatherActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".customview.PreviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".gesture.GestureActivity"
+            android:exported="false" />
+        <activity
+            android:name=".floatwindow.FloatWindowActivity"
+            android:exported="false" />
 
     </application>
 

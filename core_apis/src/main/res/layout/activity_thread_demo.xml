@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_task_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1个任务"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_task_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="多个任务"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_interrupted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="interrupted"
+        android:textAllCaps="false" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
