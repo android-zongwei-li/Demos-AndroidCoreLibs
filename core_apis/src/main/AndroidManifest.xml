@@ -45,6 +45,10 @@
             android:permission="com.lizw.myprovider.PROVIDER" />
         <!-- provider end-->
 
+        <activity
+            android:name=".android.bitmap.BitmapActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>

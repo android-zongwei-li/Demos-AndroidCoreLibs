@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import com.lizw.core_apis.android.LruCacheManager
+import com.lizw.core_apis.android.bitmap.BitmapActivity
 import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
 import com.lizw.core_apis.databinding.ActivityMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         
         binding.btnStartContentProvider.setOnClickListener {
             startActivity(Intent(this, ContentProviderActivity::class.java))
+        }
+
+        binding.btnStartBitmapActivity.setOnClickListener {
+            startActivity(Intent(this, BitmapActivity::class.java))
         }
     }
     
