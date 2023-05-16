@@ -47,7 +47,11 @@
 
         <activity
             android:name=".android.bitmap.BitmapActivity"
-            android:exported="true" />
+            android:exported="false" />
+
+        <activity
+            android:name=".android.bitmap.BigViewActivity"
+            android:exported="false" />
 
     </application>
 
