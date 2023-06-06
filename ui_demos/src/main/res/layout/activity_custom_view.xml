@@ -11,4 +11,16 @@
         android:layout_height="200dp"
         android:visibility="visible" />
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_canvas_translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="canvas.translate" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 </LinearLayout>
