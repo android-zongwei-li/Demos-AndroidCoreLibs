@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_resize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="压缩" />
+
+        <Button
+            android:id="@+id/btn_load_net_bitmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btn_resize"
+            android:text="加载网络图片" />
+
+        <TextView
+            android:id="@+id/tv_bitmap_info"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/btn_resize"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/iv_big_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:contentDescription="bitmap" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
