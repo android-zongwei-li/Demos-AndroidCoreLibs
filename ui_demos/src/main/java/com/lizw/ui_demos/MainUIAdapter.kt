@@ -1,4 +1,4 @@
-package com.lizw.ui_demos.ui
+package com.lizw.ui_demos
 
 import android.app.Activity
 import android.content.Context
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
-import com.lizw.ui_demos.R
 
 /**
  *

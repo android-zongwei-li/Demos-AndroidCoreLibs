@@ -12,17 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DemosAndroidCoreLibs">
         <activity
-            android:name=".ui.UiHomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".UiHomeActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- package start : customview -->
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <!-- package start : customview -->
         <activity
             android:name=".customview.CustomViewActivity"
             android:exported="false" /> <!-- package end : customview -->

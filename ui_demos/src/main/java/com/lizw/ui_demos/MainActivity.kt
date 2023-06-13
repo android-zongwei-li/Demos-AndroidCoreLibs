@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import com.lizw.ui_demos.customview.CustomViewActivity
 import com.lizw.ui_demos.recyclerview.RecyclerViewActivity
-import com.lizw.ui_demos.ui.UiHomeActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

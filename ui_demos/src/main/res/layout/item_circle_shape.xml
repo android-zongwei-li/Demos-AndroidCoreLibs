@@ -5,16 +5,15 @@
     android:layout_height="wrap_content"
     android:gravity="center">
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/iv_color"-->
-    <!--        android:layout_width="30dp"-->
-    <!--        android:layout_height="30dp"-->
-    <!--        android:background="@drawable/bg_shape_circle"-->
-    <!--        android:src="@color/white" />-->
+        <ImageView
+            android:id="@+id/iv_color"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@color/white" />
 
-    <com.lizw.ui.colorpicker.ImageViewWithBounds
-        android:id="@+id/iv_color"
-        android:layout_width="40dp"
-        android:layout_height="40dp" />
+<!--    <com.lizw.ui.colorpicker.ImageViewWithBounds-->
+<!--        android:id="@+id/iv_color"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp" />-->
 
 </androidx.appcompat.widget.LinearLayoutCompat>
