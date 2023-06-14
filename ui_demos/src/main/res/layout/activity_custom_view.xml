@@ -6,35 +6,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.lizw.ui_demos.customview.basic.BasisView
-        android:id="@+id/view_basis"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:visibility="gone" />
-
-    <com.lizw.ui_demos.customview.basic.CustomCircleView
-        android:id="@+id/cv_circle_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
-
-    <com.lizw.ui_demos.customview.basic.ClipRegionView
-        android:id="@+id/clip_region_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_custom_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <!-- 打算作为控制面板-->
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone">
-
-        <Button
-            android:id="@+id/btn_canvas_translate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="canvas.translate" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
 </LinearLayout>

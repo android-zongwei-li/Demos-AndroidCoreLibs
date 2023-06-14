@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- PreviewActivity 中的控件模式使用下面的属性 -->
+    <style name="preview_activity_default_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:visibility">gone</item>
+    </style>
+</resources>
