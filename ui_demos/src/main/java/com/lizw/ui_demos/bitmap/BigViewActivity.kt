@@ -1,8 +1,8 @@
-package com.lizw.core_apis.android.bitmap
+package com.lizw.ui_demos.bitmap
 
 import android.os.Bundle
-import com.lizw.core_apis.R
 import androidx.appcompat.app.AppCompatActivity
+import com.lizw.ui_demos.R
 import java.io.IOException
 
 class BigViewActivity : AppCompatActivity() {

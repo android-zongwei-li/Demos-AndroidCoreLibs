@@ -1,4 +1,4 @@
-package com.lizw.core_apis.android.bitmap
+package com.lizw.ui_demos.bitmap
 
 import android.content.Context
 import android.graphics.*

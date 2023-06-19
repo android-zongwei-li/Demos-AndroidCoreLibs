@@ -13,18 +13,6 @@
         android:text="协程" />
 
     <Button
-        android:id="@+id/btn_load_bitmap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="加载图片" />
-
-    <ImageView
-        android:id="@+id/iv_pic"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:hint="图片" />
-
-    <Button
         android:id="@+id/btn_start_retrofit_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,19 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ContentProvider" />
-
-    <Button
-        android:id="@+id/btn_start_bitmap_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bitmap" />
-
-
-    <Button
-        android:id="@+id/btn_start_activity_bigview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BigView" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

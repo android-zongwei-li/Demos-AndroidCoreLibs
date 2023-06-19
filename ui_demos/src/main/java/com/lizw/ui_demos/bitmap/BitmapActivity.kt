@@ -1,4 +1,4 @@
-package com.lizw.core_apis.android.bitmap
+package com.lizw.ui_demos.bitmap
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
@@ -9,8 +9,8 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.lizw.core_apis.R
-import com.lizw.core_apis.databinding.ActivityBitmapBinding
+import com.lizw.ui_demos.R
+import com.lizw.ui_demos.databinding.ActivityBitmapBinding
 
 // todo 写一个面板显示当前图片的信息。其他页面也类似，把需要从logcat查看的数据显示到应用中
 class BitmapActivity : AppCompatActivity() {

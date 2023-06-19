@@ -18,7 +18,7 @@
             />
     </ScrollView>-->
 
-    <com.lizw.core_apis.android.bitmap.MyBigView
+    <com.lizw.ui_demos.bitmap.MyBigView
         android:id="@+id/mbv_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

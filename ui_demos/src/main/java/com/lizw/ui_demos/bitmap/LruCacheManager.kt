@@ -1,4 +1,4 @@
-package com.lizw.core_apis.android
+package com.lizw.ui_demos.bitmap
 
 import android.app.ActivityManager
 import android.content.Context

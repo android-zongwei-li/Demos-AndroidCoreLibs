@@ -4,6 +4,8 @@
     <!-- for FloatWindowActivity -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -70,6 +72,14 @@
             android:exported="false" />
         <activity
             android:name=".floatwindow.FloatWindowActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".bitmap.BigViewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".bitmap.BitmapActivity"
             android:exported="false" />
 
     </application>

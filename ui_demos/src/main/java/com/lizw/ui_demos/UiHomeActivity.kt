@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lizw.ui_demos.animation.AnimationActivity
+import com.lizw.ui_demos.bitmap.BigViewActivity
+import com.lizw.ui_demos.bitmap.BitmapActivity
 import com.lizw.ui_demos.customview.CustomViewActivity
 import com.lizw.ui_demos.floatwindow.FloatWindowActivity
 import com.lizw.ui_demos.gesture.GestureActivity
@@ -21,6 +23,8 @@ class UiHomeActivity : AppCompatActivity() {
         dataMap[FloatWindowActivity::class.java] = "悬浮窗"
         dataMap[CustomViewActivity::class.java] = "自定义View"
         dataMap[RecyclerViewActivity::class.java] = "RecyclerView"
+        dataMap[BitmapActivity::class.java] = "Bitmap"
+        dataMap[BigViewActivity::class.java] = "大图加载"
         
         val rvMainUI = findViewById<RecyclerView>(R.id.rv_main_ui)
         rvMainUI.layoutManager = LinearLayoutManager(this)
