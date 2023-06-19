@@ -4,19 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
-import com.lizw.core_apis.databinding.ActivityMainBinding
+import com.lizw.core_apis.databinding.ActivityCoreApisMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
 import com.lizw.core_apis.kotlin.coroutines.CoroutinesActivity
 import com.lizw.core_apis.thirdpartlibs.retrofit.RetrofitActivity
 
-class MainActivity : AppCompatActivity() {
+class CoreApisMainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MainActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivityCoreApisMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnStartActivityCoroutines.setOnClickListener {
