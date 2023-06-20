@@ -5,40 +5,53 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-
+        <activity
+            android:name=".android.activity.BaseLifecycleTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".android.activity.BActivity"
+            android:exported="false"
+            android:label="B_Activity" />
+        <activity
+            android:name=".android.activity.AActivity"
+            android:exported="false"
+            android:label="A_Activity" />
+        <activity
+            android:name=".android.activity.LifecycleTestActivity"
+            android:exported="false"
+            android:label="Lifecycle Test" />
         <activity
             android:name=".CoreApisMainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Core Apis">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".java.thread.ThreadDemoActivity"
-            android:exported="false" />
-
+            android:exported="false"
+            android:label="Thread Demos" />
         <activity
             android:name=".kotlin.coroutines.CoroutinesActivity"
             android:exported="false"
             android:label="@string/title_activity_coroutines"
             android:theme="@style/Theme.DemosAndroidCoreLibs.NoActionBar" />
-
         <activity
             android:name=".thirdpartlibs.retrofit.RetrofitActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Retrofit" />
 
-        <activity android:name=".android.contentprovider.ContentProviderActivity" />
-        <!-- provider start-->
+        <activity
+            android:name=".android.contentprovider.ContentProviderActivity"
+            android:label="ContentProvider" />
         <provider
             android:name=".android.contentprovider.MyProvider"
             android:authorities="com.lizw.myprovider"
             android:exported="true"
             android:permission="com.lizw.myprovider.PROVIDER" />
-        <!-- provider end-->
-
     </application>
 
 </manifest>

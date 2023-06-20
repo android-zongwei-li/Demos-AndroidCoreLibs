@@ -1,8 +1,9 @@
 package com.lizw.core_apis
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.lizw.common.ext.startActivityDefaultIntent
+import com.lizw.core_apis.android.activity.LifecycleTestActivity
 import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
 import com.lizw.core_apis.databinding.ActivityCoreApisMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
@@ -13,27 +14,30 @@ class CoreApisMainActivity : AppCompatActivity() {
     companion object {
         private const val TAG = "MainActivity"
     }
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityCoreApisMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        
         binding.btnStartActivityCoroutines.setOnClickListener {
-            startActivity(Intent(this, CoroutinesActivity::class.java))
+            startActivityDefaultIntent(CoroutinesActivity::class.java)
         }
-  
+        
         binding.btnStartRetrofitActivity.setOnClickListener {
-            startActivity(Intent(this, RetrofitActivity::class.java))
+            startActivityDefaultIntent(RetrofitActivity::class.java)
         }
-
+        
         binding.btnStartActivityThread.setOnClickListener {
-            startActivity(Intent(this, ThreadDemoActivity::class.java))
+            startActivityDefaultIntent(ThreadDemoActivity::class.java)
         }
-
+        
         binding.btnStartContentProvider.setOnClickListener {
-            startActivity(Intent(this, ContentProviderActivity::class.java))
+            startActivityDefaultIntent(ContentProviderActivity::class.java)
+        }
+        
+        binding.btnStartActivityLifecycle.setOnClickListener {
+            startActivityDefaultIntent(LifecycleTestActivity::class.java)
         }
     }
-
 }

@@ -4,8 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 import android.widget.HorizontalScrollView
-import com.lizw.common.getScreenWidth
-import com.lizw.ui_demos.customview.weatherview.WeatherView
+import com.lizw.common.ext.getScreenWidth
 
 class WeatherHScrollView : HorizontalScrollView {
     constructor(context: Context) : super(context)

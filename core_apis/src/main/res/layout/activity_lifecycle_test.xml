@@ -4,40 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CoreApisMainActivity">
+    tools:context=".android.activity.LifecycleTestActivity">
 
     <Button
-        android:id="@+id/btn_start_activity_coroutines"
+        android:id="@+id/btn_start_activity_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="协程" />
-
-    <Button
-        android:id="@+id/btn_start_retrofit_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="retrofit"
+        android:text="启动 A Activity"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_start_activity_thread"
+        android:id="@+id/btn_start_activity_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="线程示例" />
-
-    <Button
-        android:id="@+id/btn_start_content_provider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ContentProvider"
+        android:text="启动 B Activity"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/btn_start_activity_lifecycle"
+        android:id="@+id/default3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity LifeCycle"
-        android:textAllCaps="false" />
+        android:text="text" />
 
+    <Button
+        android:id="@+id/default4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
