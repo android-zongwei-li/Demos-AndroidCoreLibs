@@ -4,9 +4,9 @@
     <string name="bind_service">Bind Service</string>
     <string name="unbind_service">Unbind Service</string>
 
-    <string name="remote_service_binding">This demonstrates how you can connect with a persistent
-        service running in another process.  Use the kill button to see what happens when
-        the process crashes.</string>
+    <string name="remote_service_binding">这个Demo演示了如何连接到另一个进程中的服务。展示了Aidl的基本使用作用，
+        包括几种不同的Aidl方法调用，比如传递基本参数、传递对象、传递IBinder对象（模拟Activity调用过程）、方法回调等。
+        Kill server模拟了服务端挂了的场景。</string>
     <string name="kill_process">Kill Process</string>
     <string name="remote_service_connected">Connected to remote service</string>
     <string name="remote_service_disconnected">Disconnected from remote service</string>

@@ -8,26 +8,30 @@ import android.util.Log
 import main.aidl.IRemoteService
 
 class RemoteService : Service() {
-    private val binder = RemoteService()
-
-    override fun onBind(intent: Intent): IBinder {
-        return binder
+    companion object {
+        private const val TAG = "DefaultRemoteService"
     }
-
-    private class RemoteService : IRemoteService.Stub() {
+    
+    private val binderDefaultRemoteService = DefaultRemoteService()
+    
+    override fun onBind(intent: Intent): IBinder {
+        return binderDefaultRemoteService
+    }
+    
+    private class DefaultRemoteService : IRemoteService.Stub() {
         override fun getPid(): Int {
             return Process.myPid()
         }
-
+        
         override fun basicTypes(
-            anInt: Int,
-            aLong: Long,
-            aBoolean: Boolean,
-            aFloat: Float,
-            aDouble: Double,
-            aString: String?
+                anInt: Int,
+                aLong: Long,
+                aBoolean: Boolean,
+                aFloat: Float,
+                aDouble: Double,
+                aString: String?,
         ) {
-            Log.i("basicTypes", "$anInt,$aLong,$aBoolean,$aFloat,$aDouble,$aString")
+            Log.i(TAG, "basicTypes $anInt,$aLong,$aBoolean,$aFloat,$aDouble,$aString")
         }
     }
 }

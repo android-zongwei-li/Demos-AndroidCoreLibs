@@ -3,7 +3,8 @@
 package main.aidl;
 
 /**
- * 一个服务端的aidl接口示例。将通过Service返回给客户端。
+ * 一个服务端的aidl接口示例。定义服务端可以为客户端提供的方法。
+ * 将通过Service返回给客户端。
  */
 interface IRemoteService {
     /**
