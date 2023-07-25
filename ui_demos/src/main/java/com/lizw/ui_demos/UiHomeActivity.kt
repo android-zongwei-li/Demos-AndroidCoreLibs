@@ -16,7 +16,7 @@ class UiHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ui_home)
-        
+
         val dataMap = HashMap<Class<*>, String>()
         dataMap[AnimationActivity::class.java] = getString(R.string.animation_page)
         dataMap[GestureActivity::class.java] = getString(R.string.gesture_page)
@@ -25,7 +25,8 @@ class UiHomeActivity : AppCompatActivity() {
         dataMap[RecyclerViewActivity::class.java] = "RecyclerView"
         dataMap[BitmapActivity::class.java] = "Bitmap"
         dataMap[BigViewActivity::class.java] = "大图加载"
-        
+        dataMap[DrawableActivity::class.java] = "图形示例"
+
         val rvMainUI = findViewById<RecyclerView>(R.id.rv_main_ui)
         rvMainUI.layoutManager = LinearLayoutManager(this)
         rvMainUI.adapter = MainUIAdapter(data = dataMap)

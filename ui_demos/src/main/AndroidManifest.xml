@@ -3,20 +3,18 @@
     package="com.lizw.ui_demos">
     <!-- for FloatWindowActivity -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
         <activity
+            android:name=".DrawableActivity"
+            android:exported="false" />
+        <activity
             android:name=".UiHomeActivity"
-            android:exported="true">
-        </activity>
-
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
-        <!-- package start : customview -->
+            android:exported="true" /> <!-- package start : customview -->
         <activity
             android:name=".customview.CustomViewActivity"
             android:exported="false" /> <!-- package end : customview -->
@@ -27,49 +25,43 @@
         <activity
             android:name=".recyclerview.MultiTypeActivity"
             android:exported="false" />
-
         <activity
             android:name=".loading.LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data
                     android:host="client"
                     android:scheme="lark" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".animation.AnimationActivity"
             android:exported="false" />
-
         <activity
             android:name=".animation.FrameAnimationActivity"
             android:exported="false" />
         <activity
             android:name=".customview.weatherview.WeatherActivity"
             android:exported="false" />
-
         <activity
             android:name=".customview.PreviewActivity"
             android:exported="false" />
-
         <activity
             android:name=".gesture.GestureActivity"
             android:exported="false" />
         <activity
             android:name=".floatwindow.FloatWindowActivity"
             android:exported="false" />
-
         <activity
             android:name=".bitmap.BigViewActivity"
             android:exported="false" />
-
         <activity
             android:name=".bitmap.BitmapActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

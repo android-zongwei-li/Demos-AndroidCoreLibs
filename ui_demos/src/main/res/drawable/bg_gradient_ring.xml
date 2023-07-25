@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="29dp"
+    android:shape="ring"
+    android:thickness="20dp"
+    android:useLevel="false">
+
+    <!--
+    Q：useLevel的含义与用法？
+    Q：ring其他属性的作用？
+    -->
+
+    <!--
+    thickness是环的厚度，innerRadius内圈环的半径，thickness+innerRadius是外圈环的半径
+    为了使这个圆环能够在控件中完全显示，
+    需满足条件 thickness+innerRadius+stroke/2 <= view.width/2
+    比如，ImageView宽100，那么thickness+innerRadius+stroke/2 <=50 才能完全显示这个环
+    -->
+
+    <gradient
+        android:angle="45"
+        android:centerColor="@color/black"
+        android:endColor="@color/colorPrimary"
+        android:startColor="@color/colorAccent" />
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/purple_200" />
+</shape>

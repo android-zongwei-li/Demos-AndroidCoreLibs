@@ -2,11 +2,8 @@ package com.lizw.demos_androidcorelibs
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.lizw.core_apis.CoreApisMainActivity
-import com.lizw.demos_androidcorelibs.broadcastreceiver.InstallUninstallBroadcastReceiver
-import com.lizw.demos_androidcorelibs.compass.PressureRequestor
 import com.lizw.demos_androidcorelibs.databinding.ActivityMainBinding
 import com.lizw.ui_demos.UiHomeActivity
 
@@ -22,10 +19,6 @@ class MainActivity : AppCompatActivity() {
         
         viewBinding.btnCoreApis.setOnClickListener {
             startActivity(Intent(this, CoreApisMainActivity::class.java))
-        }
-        
-        viewBinding.btnRegisterApkInstallStatus.setOnClickListener {
-            InstallUninstallBroadcastReceiver.register(this)
         }
     }
 }
