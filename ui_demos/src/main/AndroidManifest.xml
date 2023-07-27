@@ -8,10 +8,11 @@
     <application>
         <activity
             android:name=".DrawableActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Drawable" />
         <activity
             android:name=".UiHomeActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" /> <!-- package start : customview -->
