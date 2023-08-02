@@ -1,4 +1,4 @@
-package com.lizw.common
+package com.lizw.common.utils
 
 import android.content.Context
 import android.widget.Toast
