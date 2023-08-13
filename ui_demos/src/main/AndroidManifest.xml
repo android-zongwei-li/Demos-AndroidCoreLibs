@@ -7,6 +7,10 @@
 
     <application>
         <activity
+            android:name=".LightNightActivity"
+            android:exported="false"
+            android:theme="@style/ThemeActivityLightNight" />
+        <activity
             android:name=".DrawableActivity"
             android:exported="false"
             android:label="Drawable" />

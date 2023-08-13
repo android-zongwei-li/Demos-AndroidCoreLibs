@@ -18,4 +18,7 @@
     <color name="yellow">#ffff00</color>
     <color name="gold">#ffd700</color>
     <color name="pink">#ffc0cb</color>
+
+    <color name="text_default">@color/black</color>
+    <color name="bg_activity_light_night">@color/white</color>
 </resources>

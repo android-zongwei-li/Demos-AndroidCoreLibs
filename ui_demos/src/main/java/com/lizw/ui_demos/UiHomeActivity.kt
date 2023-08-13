@@ -26,6 +26,7 @@ class UiHomeActivity : AppCompatActivity() {
         dataMap[BitmapActivity::class.java] = "Bitmap"
         dataMap[BigViewActivity::class.java] = "大图加载"
         dataMap[DrawableActivity::class.java] = "图形示例"
+        dataMap[LightNightActivity::class.java] = "白天、夜间模式"
 
         val rvMainUI = findViewById<RecyclerView>(R.id.rv_main_ui)
         rvMainUI.layoutManager = LinearLayoutManager(this)
