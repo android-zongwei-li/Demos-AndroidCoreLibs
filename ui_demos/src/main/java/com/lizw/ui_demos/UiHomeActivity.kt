@@ -1,5 +1,6 @@
 package com.lizw.ui_demos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,10 @@ import com.lizw.ui_demos.recyclerview.RecyclerViewActivity
 
 class UiHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (Configs.debug) {
+            startActivity(Intent(this, Configs.debug_activity))
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ui_home)
 
