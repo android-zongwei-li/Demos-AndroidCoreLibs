@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".DrawableActivity">
 
-    <!-- -->
+    <!-- ShapeDrawable -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,6 +68,7 @@
             android:background="@drawable/bg_gradient_rect_line" />
     </LinearLayout>
 
+    <!-- 渐变TransitionDrawable-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,4 +107,67 @@
             android:layout_height="80dp"
             android:src="@mipmap/p10" />
     </LinearLayout>
+
+    <!-- ImageView#setImageLevel-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:id="@+id/tv_level_info"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="ImageView.setImageLevel示例" />
+
+        <ImageView
+            android:id="@+id/iv_level"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/tv_level_info" />
+
+        <Button
+            android:id="@+id/btn_iv_level1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btn_iv_level2"
+            android:text="level1" />
+
+        <Button
+            android:id="@+id/btn_iv_level2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="level2" />
+
+        <Button
+            android:id="@+id/btn_change_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="模拟切换深浅色模式" />
+    </RelativeLayout>
+
+    <!-- 消息提醒 -->
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_msg_tips"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="10dp"
+            android:src="@mipmap/p10" />
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="right"
+            android:background="@drawable/bg_message_tips"
+            android:gravity="center"
+            android:text="5" />
+    </FrameLayout>
+
 </LinearLayout>

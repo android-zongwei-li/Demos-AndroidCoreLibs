@@ -39,5 +39,12 @@
         android:text="Activity LifeCycle"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_start_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消息通知"
+        android:textAllCaps="false" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

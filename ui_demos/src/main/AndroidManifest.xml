@@ -5,7 +5,14 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application>
+    <application android:networkSecurityConfig="@xml/network_config">
+        <activity
+            android:name=".webview.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LightNightActivity"
+            android:exported="false"
+            android:theme="@style/ThemeActivityLightNight" />
         <activity
             android:name=".DrawableActivity"
             android:exported="false"

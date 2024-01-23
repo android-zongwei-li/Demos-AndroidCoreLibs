@@ -1,5 +1,6 @@
 package com.lizw.ui_demos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,10 @@ import com.lizw.ui_demos.recyclerview.RecyclerViewActivity
 
 class UiHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (Configs.debug) {
+            startActivity(Intent(this, Configs.debug_activity))
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ui_home)
 
@@ -26,6 +31,7 @@ class UiHomeActivity : AppCompatActivity() {
         dataMap[BitmapActivity::class.java] = "Bitmap"
         dataMap[BigViewActivity::class.java] = "大图加载"
         dataMap[DrawableActivity::class.java] = "图形示例"
+        dataMap[LightNightActivity::class.java] = "白天、夜间模式"
 
         val rvMainUI = findViewById<RecyclerView>(R.id.rv_main_ui)
         rvMainUI.layoutManager = LinearLayoutManager(this)
