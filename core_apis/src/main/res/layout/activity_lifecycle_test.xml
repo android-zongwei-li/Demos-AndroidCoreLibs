@@ -21,15 +21,17 @@
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/default3"
+        android:id="@+id/btn_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text" />
+        android:textAllCaps="false"
+        android:text="Show Dialog" />
 
     <Button
-        android:id="@+id/default4"
+        android:id="@+id/btn_dialog_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text" />
+        android:textAllCaps="false"
+        android:text="Start Dialog Activity" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

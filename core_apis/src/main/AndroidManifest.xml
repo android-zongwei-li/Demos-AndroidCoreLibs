@@ -10,6 +10,10 @@
             android:name=".android.notification.NotificationActivity"
             android:exported="false" />
         <activity
+            android:name=".android.activity.MyDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:exported="false" />
+        <activity
             android:name=".android.activity.BaseLifecycleTestActivity"
             android:exported="false" />
         <activity
@@ -28,11 +32,6 @@
             android:name=".CoreApisMainActivity"
             android:exported="true"
             android:label="Core Apis">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".java.thread.ThreadDemoActivity"
