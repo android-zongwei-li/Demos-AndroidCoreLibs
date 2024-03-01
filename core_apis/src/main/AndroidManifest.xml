@@ -7,12 +7,15 @@
 
     <application>
         <activity
+            android:name=".kotlin.coroutines.flow.FlowDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".android.notification.NotificationActivity"
             android:exported="false" />
         <activity
             android:name=".android.activity.MyDialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
             android:name=".android.activity.BaseLifecycleTestActivity"
             android:exported="false" />
@@ -31,8 +34,7 @@
         <activity
             android:name=".CoreApisMainActivity"
             android:exported="true"
-            android:label="Core Apis">
-        </activity>
+            android:label="Core Apis"></activity>
         <activity
             android:name=".java.thread.ThreadDemoActivity"
             android:exported="false"
