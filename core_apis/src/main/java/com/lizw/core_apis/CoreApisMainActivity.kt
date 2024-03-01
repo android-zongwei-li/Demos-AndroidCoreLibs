@@ -8,7 +8,7 @@ import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
 import com.lizw.core_apis.android.notification.NotificationActivity
 import com.lizw.core_apis.databinding.ActivityCoreApisMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
-import com.lizw.core_apis.kotlin.coroutines.CoroutinesActivity
+import com.lizw.core_apis.navigation.NavigationDemoActivity
 import com.lizw.core_apis.thirdpartlibs.retrofit.RetrofitActivity
 
 class CoreApisMainActivity : AppCompatActivity() {
@@ -22,7 +22,7 @@ class CoreApisMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnStartActivityCoroutines.setOnClickListener {
-            startActivityDefaultIntent(CoroutinesActivity::class.java)
+            startActivityDefaultIntent(NavigationDemoActivity::class.java)
         }
 
         binding.btnStartRetrofitActivity.setOnClickListener {

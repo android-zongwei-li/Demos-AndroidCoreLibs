@@ -8,7 +8,7 @@
     <!-- fragment 换成 androidx.fragment.app.FragmentContainerView 后，
         findNavController 会报错-->
     <fragment
-        android:id="@+id/nav_host_fragment_content_coroutines"
+        android:id="@+id/nav_host_fragment_content_navigation"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

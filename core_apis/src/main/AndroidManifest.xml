@@ -40,7 +40,7 @@
             android:exported="false"
             android:label="Thread Demos" />
         <activity
-            android:name=".kotlin.coroutines.CoroutinesActivity"
+            android:name=".navigation.NavigationDemoActivity"
             android:exported="false"
             android:label="@string/title_activity_coroutines"
             android:theme="@style/Theme.DemosAndroidCoreLibs.NoActionBar" />
