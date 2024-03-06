@@ -8,6 +8,7 @@ import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
 import com.lizw.core_apis.android.notification.NotificationActivity
 import com.lizw.core_apis.databinding.ActivityCoreApisMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
+import com.lizw.core_apis.kotlin.coroutines.CoroutinesDemoActivity
 import com.lizw.core_apis.navigation.NavigationDemoActivity
 import com.lizw.core_apis.thirdpartlibs.retrofit.RetrofitActivity
 
@@ -43,6 +44,10 @@ class CoreApisMainActivity : AppCompatActivity() {
 
         binding.btnStartNotification.setOnClickListener {
             startActivityDefaultIntent(NotificationActivity::class.java)
+        }
+        
+        binding.btnCoroutine.setOnClickListener {
+            startActivityDefaultIntent(CoroutinesDemoActivity::class.java)
         }
     }
 }

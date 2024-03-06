@@ -7,6 +7,9 @@
 
     <application>
         <activity
+            android:name=".kotlin.coroutines.CoroutinesDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".kotlin.coroutines.flow.FlowDemoActivity"
             android:exported="false" />
         <activity
@@ -34,7 +37,7 @@
         <activity
             android:name=".CoreApisMainActivity"
             android:exported="true"
-            android:label="Core Apis"></activity>
+            android:label="Core Apis" />
         <activity
             android:name=".java.thread.ThreadDemoActivity"
             android:exported="false"
