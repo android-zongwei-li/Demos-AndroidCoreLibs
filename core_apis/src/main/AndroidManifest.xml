@@ -13,6 +13,9 @@
             android:name=".kotlin.coroutines.flow.FlowDemoActivity"
             android:exported="false" />
         <activity
+            android:name=".android.file.FileDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".android.notification.NotificationActivity"
             android:exported="false" />
         <activity

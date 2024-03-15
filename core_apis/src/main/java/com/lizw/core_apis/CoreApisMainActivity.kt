@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.lizw.common.ext.startActivityDefaultIntent
 import com.lizw.core_apis.android.activity.LifecycleTestActivity
 import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
+import com.lizw.core_apis.android.file.FileDemoActivity
 import com.lizw.core_apis.android.notification.NotificationActivity
 import com.lizw.core_apis.databinding.ActivityCoreApisMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
@@ -45,9 +46,13 @@ class CoreApisMainActivity : AppCompatActivity() {
         binding.btnStartNotification.setOnClickListener {
             startActivityDefaultIntent(NotificationActivity::class.java)
         }
-        
+
         binding.btnCoroutine.setOnClickListener {
             startActivityDefaultIntent(CoroutinesDemoActivity::class.java)
+        }
+
+        binding.btnFile.setOnClickListener {
+            startActivityDefaultIntent(FileDemoActivity::class.java)
         }
     }
 }
