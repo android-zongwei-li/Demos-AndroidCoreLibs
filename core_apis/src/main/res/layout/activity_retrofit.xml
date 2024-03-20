@@ -6,13 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".thirdpartlibs.retrofit.RetrofitActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btn_get_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="30dp"
+        android:text="获取聚合天气：上海"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_weather_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="天气结果"
+        app:layout_constraintStart_toStartOf="@+id/btn_get_weather"
+        app:layout_constraintTop_toBottomOf="@+id/btn_get_weather" />
 </androidx.constraintlayout.widget.ConstraintLayout>

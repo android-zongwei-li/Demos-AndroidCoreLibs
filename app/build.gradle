@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.lizw.demos_androidcorelibs"
@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation project(':common')
     implementation project(':ui_demos')
     implementation project(':core_apis')
 
