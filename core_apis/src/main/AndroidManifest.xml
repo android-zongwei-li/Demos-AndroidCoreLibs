@@ -6,6 +6,23 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application>
+
+        <provider
+            android:name="com.lizw.core_apis.android.contentprovider.demo.MyContentProvider"
+            android:authorities="com.picture.provider"
+            android:exported="true">
+        </provider>
+
+        <provider
+            android:name=".android.contentprovider.demo.MyFileProvider"
+            android:authorities="com.lizw.demos.my_flie_provider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".android.contentprovider.demo.MainActivity"
+            android:exported="false" />
+
         <activity
             android:name=".kotlin.coroutines.CoroutinesDemoActivity"
             android:exported="false" />

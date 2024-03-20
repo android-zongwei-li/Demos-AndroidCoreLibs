@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 设置按钮按下去状态图片 -->
+    <item android:drawable="@drawable/btn_bg2" android:state_pressed="true"></item>
+    <!-- 其他任何状态都显示同一张图片 -->
+    <item android:drawable="@drawable/btn_bg1"></item>
+
+</selector>

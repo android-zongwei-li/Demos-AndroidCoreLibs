@@ -25,3 +25,7 @@ include ':aidlsdk'
 //include ':designpattern'
 //include ':aidlserver'
 //include ':aidlclient'
+
+// clientapp 作为一个独立的 app，用来和服务端交互，比如访问服务端的ContentProvider
+// 为了方便管理，放到一个项目中，不参与app的编译，独立编译。
+//include ':clientapp'
