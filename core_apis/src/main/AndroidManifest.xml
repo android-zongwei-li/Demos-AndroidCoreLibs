@@ -6,13 +6,14 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application>
+        <activity
+            android:name=".thirdpartlibs.glide.GlideDemoActivity"
+            android:exported="false" />
 
         <provider
-            android:name="com.lizw.core_apis.android.contentprovider.demo.MyContentProvider"
+            android:name=".android.contentprovider.demo.MyContentProvider"
             android:authorities="com.picture.provider"
-            android:exported="true">
-        </provider>
-
+            android:exported="true"></provider>
         <provider
             android:name=".android.contentprovider.demo.MyFileProvider"
             android:authorities="com.lizw.demos.my_flie_provider"
@@ -22,7 +23,6 @@
         <activity
             android:name=".android.contentprovider.demo.MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".kotlin.coroutines.CoroutinesDemoActivity"
             android:exported="false" />
