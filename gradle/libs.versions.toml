@@ -1,0 +1,52 @@
+[versions]
+#androidGradlePlugin = "8.2.1"
+appcompatVersion = "1.6.1"
+circleimageview = "3.1.0"
+constraintlayoutVersion = "2.1.4"
+coreKtx = "1.10.1"
+glide = "4.16.0"
+kotlinxCoroutinesAndroid = "1.6.4"
+material = "1.9.0"
+retrofit = "2.9.0"
+navigationUiKtx = "2.6.0"
+navigationFragmentKtx = "2.6.0"
+swiperefreshlayout = "1.1.0"
+
+[libraries]
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+# recyclerview 下拉刷新
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+# navigation
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+# 协程
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+#
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+# https://github.com/bumptech/glide
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+# 圆角图形[https://github.com/hdodenhof/CircleImageView]
+circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
+
+# 可以批量依赖，一次依赖多个
+[bundles]
+moduleApp = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material"]
+moduleAidlClient = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material"]
+moduleAidlServer = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material"]
+moduleAidlSdk = ["androidx-core-ktx", "androidx-appcompat", "material"]
+moduleCommon = ["androidx-core-ktx", "androidx-appcompat", "material"]
+moduleCoreApis = [
+    "androidx-core-ktx", "androidx-appcompat", "material", "androidx-constraintlayout",
+    "glide", "retrofit", "androidx-navigation-ui-ktx", "androidx-navigation-fragment-ktx",
+    "kotlinx-coroutines-android"
+]
+moduleUiDemos = [
+    "androidx-core-ktx", "androidx-appcompat", "material", "androidx-constraintlayout",
+    "circleimageview", "androidx-swiperefreshlayout"
+]
+
+#[plugins]
+#android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
