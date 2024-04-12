@@ -45,6 +45,10 @@ android {
             }
         }
     }
+    buildFeatures {
+        aidl true
+    }
+    namespace 'com.lizw.aidlclient'
 }
 
 dependencies {

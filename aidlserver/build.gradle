@@ -33,6 +33,10 @@ android {
     viewBinding {
         enabled = true
     }
+    buildFeatures {
+        aidl true
+    }
+    namespace 'com.lizw.aidlserver'
 }
 
 dependencies {
