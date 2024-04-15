@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.IBinder
 import android.os.Process
 import android.util.Log
-import main.aidl.IRemoteService
+import com.lizw.aidlserver.aidlsdk.IRemoteService
 
 class RemoteService : Service() {
     companion object {

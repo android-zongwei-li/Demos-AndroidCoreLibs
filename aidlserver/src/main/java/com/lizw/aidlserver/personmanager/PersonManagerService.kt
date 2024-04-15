@@ -2,16 +2,15 @@ package com.lizw.aidlserver.personmanager
 
 import android.app.Service
 import android.content.Intent
-import android.os.Binder
 import android.os.Bundle
 import android.os.IBinder
 import android.os.RemoteCallbackList
 import android.os.RemoteException
 import android.util.Log
-import com.lizw.aidlsdk.ICommonDoBusinessCallback
-import com.lizw.aidlsdk.IOnPersonChangeListener
-import com.lizw.aidlsdk.IPersonInfoManager
-import com.lizw.aidlsdk.Person
+import com.lizw.aidlserver.aidlsdk.ICommonDoBusinessCallback
+import com.lizw.aidlserver.aidlsdk.person.IOnPersonChangeListener
+import com.lizw.aidlserver.aidlsdk.person.IPersonInfoManager
+import com.lizw.aidlserver.aidlsdk.person.Person
 
 class PersonManagerService : Service() {
     
@@ -57,7 +56,7 @@ class PersonManagerService : Service() {
                 }
                 binder.linkToDeath(deathRecipient, 0)
             }
-    
+            
             remoteCallbackList.register(p0)
         }
         

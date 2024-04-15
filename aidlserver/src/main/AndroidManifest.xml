@@ -18,7 +18,7 @@
         </service>
 
         <service
-            android:name=".aidlservice.PersonInfoService"
+            android:name=".person.PersonInfoService"
             android:enabled="true"
             android:exported="true" />
 
@@ -33,7 +33,7 @@
         </activity>
 
         <service
-            android:name=".BookService"
+            android:name=".book.BookService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

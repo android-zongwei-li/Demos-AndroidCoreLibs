@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <package android:name="com.lizw.aidlserver" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -29,6 +32,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.lizw.demos_androidcorelibs.aidl.AidlClientActivity"
+            android:exported="true">
         </activity>
     </application>
 
