@@ -1,21 +1,52 @@
 [versions]
 #androidGradlePlugin = "8.2.1"
+activityVersion = "1.7.0"
 appcompatVersion = "1.6.1"
 circleimageview = "3.1.0"
 constraintlayoutVersion = "2.1.4"
+coreCommonVersion = "2.2.0"
 coreKtx = "1.10.1"
+fragmentVersion = "1.6.0"
+coreRuntimeVersion = "2.2.0"
 glide = "4.16.0"
+kotlinStdlibJdk8Version = "1.9.0"
 kotlinxCoroutinesAndroid = "1.6.4"
+lifecycleViewmodelSavedstateVersion = "2.6.1"
+lifecycleRuntimeVersion = "2.6.1"
+lifecycleLivedataCoreVersion = "2.6.1"
+lifecycleCommonVersion = "2.6.1"
+lifecycleViewmodelVersion = "2.6.1"
+lifecycleLivedataVersion = "2.6.1"
 material = "1.9.0"
-retrofit = "2.9.0"
+retrofit = "2.11.0"
 navigationUiKtx = "2.6.0"
 navigationFragmentKtx = "2.6.0"
+savedstateVersion = "1.2.1"
 swiperefreshlayout = "1.1.0"
+transitionVersion = "1.4.1"
+
+agp = "8.2.1"
+kotlin = "1.9.0"
 
 [libraries]
+androidx-activity = { module = "androidx.activity:activity", version.ref = "activityVersion" }
+androidx-core-common = { module = "androidx.arch.core:core-common", version.ref = "coreCommonVersion" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompatVersion" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayoutVersion" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlinStdlibJdk8Version" }
+kotlin-stdlib-common = { module = "org.jetbrains.kotlin:kotlin-stdlib-common", version.ref = "kotlinStdlibJdk8Version" }
+androidx-transition = { module = "androidx.transition:transition", version.ref = "transitionVersion" }
+androidx-savedstate = { module = "androidx.savedstate:savedstate", version.ref = "savedstateVersion" }
+androidx-lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "lifecycleViewmodelSavedstateVersion" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime", version.ref = "lifecycleRuntimeVersion" }
+androidx-lifecycle-livedata-core = { module = "androidx.lifecycle:lifecycle-livedata-core", version.ref = "lifecycleLivedataCoreVersion" }
+androidx-lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref = "lifecycleCommonVersion" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewmodelVersion" }
+androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata", version.ref = "lifecycleLivedataVersion" }
+androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "fragmentVersion" }
+androidx-core-runtime = { module = "androidx.arch.core:core-runtime", version.ref = "coreRuntimeVersion" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8Version" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 # recyclerview 下拉刷新
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
@@ -25,6 +56,7 @@ androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fr
 # 协程
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 #
+org-jetbrains-kotlinx-kotlinx-coroutines-core-jvm = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm", version.ref = "kotlinxCoroutinesAndroid" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 # https://github.com/bumptech/glide
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
@@ -33,20 +65,30 @@ circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circ
 
 # 可以批量依赖，一次依赖多个
 [bundles]
-moduleApp = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material"]
-moduleAidlClient = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material"]
-moduleAidlServer = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material"]
-moduleAidlSdk = ["androidx-core-ktx", "androidx-appcompat", "material"]
-moduleCommon = ["androidx-core-ktx", "androidx-appcompat", "material"]
+moduleApp = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material",
+    "androidx-activity",
+    "androidx-core-runtime",
+    "androidx-fragment",
+]
+moduleAidlServer = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material",
+    "androidx-activity",
+]
+moduleClientApp = ["androidx-core-ktx", "androidx-appcompat", "androidx-constraintlayout", "material",
+    "androidx-activity",
+]
+moduleCommon = []
 moduleCoreApis = [
     "androidx-core-ktx", "androidx-appcompat", "material", "androidx-constraintlayout",
     "glide", "retrofit", "androidx-navigation-ui-ktx", "androidx-navigation-fragment-ktx",
-    "kotlinx-coroutines-android"
+    "kotlinx-coroutines-android",
+    "androidx-activity",
 ]
 moduleUiDemos = [
     "androidx-core-ktx", "androidx-appcompat", "material", "androidx-constraintlayout",
-    "circleimageview", "androidx-swiperefreshlayout"
+    "circleimageview", "androidx-swiperefreshlayout",
+    "androidx-activity",
 ]
 
-#[plugins]
-#android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

@@ -18,13 +18,12 @@ include ':common'
 include ':core_apis'
 include ':ui_demos'
 // aidlserver 模块作为独立的 app 编译
-//include ':aidlserver'
+include ':aidlserver'
 
 // 开发app模块时，下面几个module不需要编译aidlserver和aidlclient是两个独立的app。
 //include ':designpattern'
-//include ':aidlserver'
 
 // clientapp 作为一个独立的 app，用来和服务端交互，比如访问服务端的ContentProvider
 // 为了方便管理，放到一个项目中，不参与app的编译，独立编译。
-//include ':clientapp'
-//include ':aidlserver:aidlsdk'
+include ':clientapp'
+include ':aidlserver:aidlsdk'
