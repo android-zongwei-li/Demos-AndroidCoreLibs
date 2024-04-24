@@ -12,7 +12,12 @@ class GlideDemoActivity : AppCompatActivity() {
         setContentView(binding.root)
         
         binding.btnLoadImg.setOnClickListener {
-            Glide.with(this).load("").into(binding.imageView)
+            Glide.with(this)
+                    .load("https://img2.baidu.com/it/u=2502839585,1143634321&fm=253&fmt=auto&app=138&f=PNG?w=940&h=500")
+                    .into(binding.imageView)
         }
+        
+        // 测试 Glide 中的 DiskLruCache
+        // DiskLruCache.open(File(cacheDir.path + "test_disk"), 1, 5, Int.MAX_VALUE.toLong())
     }
 }

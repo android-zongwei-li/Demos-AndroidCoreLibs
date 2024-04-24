@@ -18,6 +18,7 @@ lifecycleCommonVersion = "2.6.1"
 lifecycleViewmodelVersion = "2.6.1"
 lifecycleLivedataVersion = "2.6.1"
 material = "1.9.0"
+okhttp3IntegrationVersion = "4.16.0"
 retrofit = "2.11.0"
 navigationUiKtx = "2.6.0"
 navigationFragmentKtx = "2.6.0"
@@ -55,11 +56,15 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 # 协程
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
-#
+
+# Glide集成OkHttp时需要使用的库，库已经将需要适配Okhhtp的大部分代码封装
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-okhttp3-integration = { module = "com.github.bumptech.glide:okhttp3-integration", version.ref = "okhttp3IntegrationVersion" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+
 org-jetbrains-kotlinx-kotlinx-coroutines-core-jvm = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm", version.ref = "kotlinxCoroutinesAndroid" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 # https://github.com/bumptech/glide
-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 # 圆角图形[https://github.com/hdodenhof/CircleImageView]
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 
@@ -82,6 +87,7 @@ moduleCoreApis = [
     "glide", "retrofit", "androidx-navigation-ui-ktx", "androidx-navigation-fragment-ktx",
     "kotlinx-coroutines-android",
     "androidx-activity",
+    "glide-okhttp3-integration"
 ]
 moduleUiDemos = [
     "androidx-core-ktx", "androidx-appcompat", "material", "androidx-constraintlayout",

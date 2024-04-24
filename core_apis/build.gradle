@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+
+    id 'kotlin-kapt'
 }
 
 android {
@@ -37,4 +39,8 @@ dependencies {
     implementation project(':common')
 
     implementation libs.bundles.moduleCoreApis
+    implementation "com.squareup.okhttp3:logging-interceptor:3.14.9"
+
+    // 尝试过替换 ksp ，失败了
+    kapt libs.glide.compiler
 }
