@@ -6,13 +6,16 @@
 
     <application>
         <activity
+            android:name=".thirdpartlibs.workmanager.WorkManagerDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".thirdpartlibs.glide.GlideDemoActivity"
             android:exported="false" />
 
         <provider
             android:name=".android.contentprovider.demo.MyContentProvider"
             android:authorities="com.picture.provider"
-            android:exported="true"></provider>
+            android:exported="true" />
         <provider
             android:name=".android.contentprovider.demo.MyFileProvider"
             android:authorities="com.lizw.demos.my_flie_provider"

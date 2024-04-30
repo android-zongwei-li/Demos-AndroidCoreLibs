@@ -39,7 +39,10 @@ dependencies {
     implementation project(':common')
 
     implementation libs.bundles.moduleCoreApis
-    implementation "com.squareup.okhttp3:logging-interceptor:3.14.9"
+    implementation libs.logging.interceptor
+
+    // Kotlin + coroutines
+    implementation libs.work.runtime.ktx
 
     // 尝试过替换 ksp ，失败了
     kapt libs.glide.compiler
