@@ -30,6 +30,9 @@ transitionVersion = "1.4.1"
 agp = "8.2.1"
 kotlin = "1.9.0"
 workRuntimeKtx = "2.9.0"
+roomCommonVersion = "2.6.1"
+roomRuntimeVersion = "2.6.1"
+roomCompilerVersion = "2.6.1"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "activityVersion" }
@@ -73,6 +76,11 @@ circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circ
 
 # WorkManager
 work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+
+# Room
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommonVersion" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntimeVersion" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompilerVersion" }
 
 # 可以批量依赖，一次依赖多个
 [bundles]

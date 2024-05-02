@@ -6,12 +6,20 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
 //        applicationId "com.lizw.core_apis"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
+
+        // 指定room.schemaLocation生成的文件路径
+        // 不指定的话，build 会报错
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,6 +51,11 @@ dependencies {
 
     // Kotlin + coroutines
     implementation libs.work.runtime.ktx
+
+    // Room
+    implementation libs.androidx.room.common
+    implementation libs.androidx.room.runtime
+    kapt libs.androidx.room.compiler
 
     // 尝试过替换 ksp ，失败了
     kapt libs.glide.compiler

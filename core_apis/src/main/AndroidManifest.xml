@@ -12,6 +12,8 @@
             android:name=".thirdpartlibs.glide.GlideDemoActivity"
             android:exported="false" />
 
+        <activity android:name=".thirdpartlibs.room.RoomActivity" />
+
         <provider
             android:name=".android.contentprovider.demo.MyContentProvider"
             android:authorities="com.picture.provider"
