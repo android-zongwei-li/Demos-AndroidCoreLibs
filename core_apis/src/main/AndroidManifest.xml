@@ -6,12 +6,14 @@
 
     <application>
         <activity
+            android:name=".thirdpartlibs.okhttp.OkhttpDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".thirdpartlibs.workmanager.WorkManagerDemoActivity"
             android:exported="false" />
         <activity
             android:name=".thirdpartlibs.glide.GlideDemoActivity"
             android:exported="false" />
-
         <activity android:name=".thirdpartlibs.room.RoomActivity" />
 
         <provider

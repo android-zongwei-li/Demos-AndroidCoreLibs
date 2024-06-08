@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".thirdpartlibs.okhttp.OkhttpDemoActivity">
+
+    <Button
+        android:id="@+id/btn_async_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AsyncGet" />
+
+    <Button
+        android:id="@+id/btn_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="get" />
+
+    <Button
+        android:id="@+id/btn_post_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="post string" />
+
+    <Button
+        android:id="@+id/btn_post_key_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="post key-value" />
+
+    <Button
+        android:id="@+id/btn_post_json"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="post json" />
+</LinearLayout>
