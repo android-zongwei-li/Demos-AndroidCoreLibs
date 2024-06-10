@@ -10,6 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import java.io.IOException
 
 class OkhttpDemoActivity : AppCompatActivity() {
@@ -59,7 +60,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
                 //response.body().string() 获得服务器返回的数据
-                Log.d(TAG, "onResponse: " + response.body()?.string())
+                Log.d(TAG, "onResponse: " + response.body?.string())
             }
         })
     }
@@ -73,7 +74,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
             withContext(Dispatchers.IO) {
                 try {
                     val response = call.execute()
-                    Log.d(TAG, "run: " + response.body()!!.string())
+                    Log.d(TAG, "run: " + response.body?.string())
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
@@ -84,7 +85,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
     fun postString() {
         val url = "http://wwww.baidu.com"
         val client = OkHttpClient()
-        val mediaType = MediaType.parse("text/x-markdown; charset=utf-8")
+        val mediaType = "text/x-markdown; charset=utf-8".toMediaTypeOrNull()
         val requestBody = RequestBody.create(mediaType, "RequestBody")
         val request: Request = Request.Builder()
                 .url(url)
@@ -98,7 +99,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
             
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                Log.d(TAG, "onResponse: " + response.body()!!.string())
+                Log.d(TAG, "onResponse: " + response.body?.string())
             }
         })
     }
@@ -122,7 +123,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
             
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                Log.d(TAG, "onResponse: " + response.body()!!.string())
+                Log.d(TAG, "onResponse: " + response.body?.string())
             }
         })
     }
@@ -130,7 +131,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
     fun postJson(jsonData: String) {
         val url = "http://wwww.baidu.com"
         val client = OkHttpClient()
-        val mediaType = MediaType.parse("application/json;charset=utf-8")
+        val mediaType = "application/json;charset=utf-8".toMediaTypeOrNull()
         val requestBody: RequestBody = RequestBody.create(mediaType, jsonData)
         val request: Request = Request.Builder()
                 .url(url)
@@ -144,7 +145,7 @@ class OkhttpDemoActivity : AppCompatActivity() {
             
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                Log.d(TAG, "onResponse: " + response.body()!!.string())
+                Log.d(TAG, "onResponse: " + response.body?.string())
             }
         })
     }
