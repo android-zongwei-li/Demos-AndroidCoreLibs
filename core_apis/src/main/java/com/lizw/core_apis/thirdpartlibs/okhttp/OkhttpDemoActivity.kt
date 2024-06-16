@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.lizw.core_apis.R
 import com.lizw.core_apis.databinding.ActivityOkhttpDemoBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.*
+import okhttp3.Interceptor.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import java.io.IOException
 
@@ -38,6 +38,9 @@ class OkhttpDemoActivity : AppCompatActivity() {
             }
             btnPostJson.setOnClickListener {
                 postJson("{\"x\":s}")
+            }
+            btnRetry.setOnClickListener {
+                RetryTest().test()
             }
         }
     }
