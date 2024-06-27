@@ -54,6 +54,7 @@ dependencies {
 
     // Glide transform 库：https://github.com/wasabeef/glide-transformations
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
 
     // Kotlin + coroutines
     implementation libs.work.runtime.ktx

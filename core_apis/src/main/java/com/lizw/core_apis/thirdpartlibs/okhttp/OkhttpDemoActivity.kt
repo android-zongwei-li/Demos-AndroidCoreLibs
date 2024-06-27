@@ -152,4 +152,10 @@ class OkhttpDemoActivity : AppCompatActivity() {
             }
         })
     }
+    
+    fun testCustomDns() {
+        val client: OkHttpClient = OkHttpClient.Builder()
+                .dns(CustomNDS(3000))
+                .build()
+    }
 }

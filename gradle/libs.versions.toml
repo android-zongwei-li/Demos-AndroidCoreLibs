@@ -19,7 +19,6 @@ lifecycleViewmodelVersion = "2.6.1"
 lifecycleLivedataVersion = "2.6.1"
 material = "1.9.0"
 okhttp3IntegrationVersion = "4.16.0"
-retrofit = "2.11.0"
 navigationUiKtx = "2.6.0"
 navigationFragmentKtx = "2.6.0"
 savedstateVersion = "1.2.1"
@@ -67,7 +66,6 @@ glide-okhttp3-integration = { module = "com.github.bumptech.glide:okhttp3-integr
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 
 org-jetbrains-kotlinx-kotlinx-coroutines-core-jvm = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm", version.ref = "kotlinxCoroutinesAndroid" }
-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 # https://github.com/bumptech/glide
 # 圆角图形[https://github.com/hdodenhof/CircleImageView]
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
@@ -96,7 +94,7 @@ moduleClientApp = ["androidx-core-ktx", "androidx-appcompat", "androidx-constrai
 moduleCommon = []
 moduleCoreApis = [
     "androidx-core-ktx", "androidx-appcompat", "material", "androidx-constraintlayout",
-    "glide", "retrofit", "androidx-navigation-ui-ktx", "androidx-navigation-fragment-ktx",
+    "glide", "androidx-navigation-ui-ktx", "androidx-navigation-fragment-ktx",
     "kotlinx-coroutines-android",
     "androidx-activity",
     "glide-okhttp3-integration"
