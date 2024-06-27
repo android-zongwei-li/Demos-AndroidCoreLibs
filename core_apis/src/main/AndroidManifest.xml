@@ -6,6 +6,9 @@
 
     <application>
         <activity
+            android:name=".thirdpartlibs.glide.GlideDemo2Activity"
+            android:exported="false" />
+        <activity
             android:name=".thirdpartlibs.okhttp.OkhttpDemoActivity"
             android:exported="false" />
         <activity

@@ -17,7 +17,6 @@ lifecycleLivedataCoreVersion = "2.6.1"
 lifecycleCommonVersion = "2.6.1"
 lifecycleViewmodelVersion = "2.6.1"
 lifecycleLivedataVersion = "2.6.1"
-loggingInterceptorVersion = "3.14.9"
 material = "1.9.0"
 okhttp3IntegrationVersion = "4.16.0"
 retrofit = "2.11.0"
@@ -53,7 +52,6 @@ androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata"
 androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "fragmentVersion" }
 androidx-core-runtime = { module = "androidx.arch.core:core-runtime", version.ref = "coreRuntimeVersion" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlinStdlibJdk8Version" }
-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptorVersion" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 # recyclerview 下拉刷新
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }

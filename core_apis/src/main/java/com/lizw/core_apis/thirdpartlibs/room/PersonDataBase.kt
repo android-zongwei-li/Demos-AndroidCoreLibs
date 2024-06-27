@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 /**
  * Created by Li Zongwei on 2021/3/30.
  */
-@Database(entities = [Person::class], version = 1)
+@Database(entities = [Person::class], version = 1, exportSchema = false)
 abstract class PersonDataBase : RoomDatabase() {
 
 

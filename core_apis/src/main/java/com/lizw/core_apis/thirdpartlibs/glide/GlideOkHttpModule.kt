@@ -20,18 +20,21 @@ private const val TAG = "GlideOkHttpModule"
  */
 @GlideModule
 class GlideOkHttpModule : AppGlideModule() {
-    
+
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-        
+
         Log.i(TAG, "registerComponents: ")
         val client: OkHttpClient = OkHttpClient.Builder()
-                .retryOnConnectionFailure(true)
-                .addInterceptor(httpLoggingInterceptor)
-                .connectTimeout(6, TimeUnit.SECONDS)
-                .build()
-        
-        registry.replace(GlideUrl::class.java, InputStream::class.java, OkHttpUrlLoader.Factory(client))
+            .retryOnConnectionFailure(true)
+            .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(ProgressInterceptor())
+            .connectTimeout(6, TimeUnit.SECONDS)
+            .build()
+
+        registry.replace(
+            GlideUrl::class.java, InputStream::class.java, OkHttpUrlLoader.Factory(client)
+        )
     }
 }

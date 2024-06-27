@@ -47,9 +47,13 @@ dependencies {
     implementation project(':common')
 
     implementation libs.bundles.moduleCoreApis
-    implementation libs.logging.interceptor
 
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    // 注意版本一定要匹配，否则运行时会报错
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    // Glide transform 库：https://github.com/wasabeef/glide-transformations
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
 
     // Kotlin + coroutines
     implementation libs.work.runtime.ktx
