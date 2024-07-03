@@ -6,6 +6,9 @@
 
     <application>
         <activity
+            android:name=".thirdpartlibs.leakcanary.LeakCanaryDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".thirdpartlibs.glide.GlideDemo2Activity"
             android:exported="false" />
         <activity
@@ -36,7 +39,7 @@
             android:name=".kotlin.coroutines.CoroutinesDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".kotlin.coroutines.flow.FlowDemoActivity"
+            android:name=".kotlin.flow.FlowDemoActivity"
             android:exported="false" />
         <activity
             android:name=".android.file.FileDemoActivity"

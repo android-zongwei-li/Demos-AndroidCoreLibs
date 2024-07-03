@@ -66,4 +66,7 @@ dependencies {
 
     // 尝试过替换 ksp ，失败了
     kapt libs.glide.compiler
+
+    // debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
 }
