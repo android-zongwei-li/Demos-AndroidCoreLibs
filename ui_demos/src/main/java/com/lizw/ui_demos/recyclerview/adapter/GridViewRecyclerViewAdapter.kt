@@ -10,8 +10,6 @@ import com.lizw.ui_demos.recyclerview.viewholder.AViewHolder
 
 /**
  * 用于
- *
- * author: zongwei.li created on: 2022/6/6
  */
 class GridViewRecyclerViewAdapter(val data: List<ItemBean>) : BaseRecyclerViewAdapter<ItemBean>(data) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ItemBean> {

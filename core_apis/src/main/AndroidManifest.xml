@@ -6,6 +6,12 @@
 
     <application>
         <activity
+            android:name=".thirdpartlibs.datastore.DatastoreDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BaseListOfBtnsActivity"
+            android:exported="false" />
+        <activity
             android:name=".thirdpartlibs.leakcanary.LeakCanaryDemoActivity"
             android:exported="false" />
         <activity

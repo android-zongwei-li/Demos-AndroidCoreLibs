@@ -1,10 +1,12 @@
+package com.lizw.demos_androidcorelibs
+
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 /**
  *
  */
-@HiltAndroidApp
+//@HiltAndroidApp
 class MyApplication : Application() {
 
 }
