@@ -27,3 +27,5 @@ include ':designpattern'
 // 为了方便管理，放到一个项目中，不参与app的编译，独立编译。
 include ':clientapp'
 include ':aidlserver:aidlsdk'
+include ':core_apis:TestHotFix'
+include ':media'

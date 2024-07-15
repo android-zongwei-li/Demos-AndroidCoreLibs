@@ -1,6 +1,7 @@
 package com.lizw.core_apis.thirdpartlibs.datastore
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -15,10 +16,12 @@ class DatastoreDemoActivity : AppCompatActivity() {
     companion object {
         const val DATA_STORE_KEY_TEXT = "name"
     }
+    val binding :ActivityDatastoreDemoBinding by lazy {
+        ActivityDatastoreDemoBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityDatastoreDemoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnSaveData.setOnClickListener {
             saveText(appDataStore, "Leo")
@@ -47,5 +50,10 @@ class DatastoreDemoActivity : AppCompatActivity() {
                 println("name is $text")
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("TAG", "onResume: width = ${binding.btnGetData.width}")
     }
 }

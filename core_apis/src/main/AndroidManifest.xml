@@ -6,6 +6,9 @@
 
     <application>
         <activity
+            android:name=".android.hotfix.DexClassLoaderHotfixActivity"
+            android:exported="false" />
+        <activity
             android:name=".thirdpartlibs.datastore.DatastoreDemoActivity"
             android:exported="false" />
         <activity
