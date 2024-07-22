@@ -6,6 +6,9 @@
 
     <application>
         <activity
+            android:name=".thirdpartlibs.leakcanary.LeakDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".android.hotfix.DexClassLoaderHotfixActivity"
             android:exported="false" />
         <activity

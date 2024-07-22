@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.debounce
@@ -72,7 +73,7 @@ class FlowDemoActivity : BaseListOfBtnsActivity() {
                     emit("20")
                 }
                 emit("flow")
-            }
+            }.buffer()
 
 //            下面的写法跟上面是一样的
 //            val f: suspend FlowCollector<String>.() -> Unit = {
