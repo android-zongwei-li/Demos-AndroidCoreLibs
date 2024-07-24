@@ -5,99 +5,68 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application>
-        <activity
-            android:name=".thirdpartlibs.leakcanary.LeakDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".android.hotfix.DexClassLoaderHotfixActivity"
-            android:exported="false" />
-        <activity
-            android:name=".thirdpartlibs.datastore.DatastoreDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BaseListOfBtnsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".thirdpartlibs.leakcanary.LeakCanaryDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".thirdpartlibs.glide.GlideDemo2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".thirdpartlibs.okhttp.OkhttpDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".thirdpartlibs.workmanager.WorkManagerDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".thirdpartlibs.glide.GlideDemoActivity"
-            android:exported="false" />
+
+        <activity android:name=".thirdpartlibs.livedata_viewmodel.sample_count.CountActivity" />
+        <activity android:name=".thirdpartlibs.livedata_viewmodel.sample_same.MainTwoActivity" />
+        <activity android:name=".thirdpartlibs.livedata_viewmodel.LiveDataViewModelDemoActivity" />
+        <activity android:name=".thirdpartlibs.livedata_viewmodel.sample_count.SecondActivity" />
+
+        <activity android:name=".thirdpartlibs.leakcanary.LeakDemoActivity" />
+        <activity android:name=".android.hotfix.DexClassLoaderHotfixActivity" />
+        <activity android:name=".thirdpartlibs.datastore.DatastoreDemoActivity" />
+        <activity android:name=".BaseListOfBtnsActivity" />
+        <activity android:name=".thirdpartlibs.leakcanary.LeakCanaryDemoActivity" />
+        <activity android:name=".thirdpartlibs.glide.GlideDemo2Activity" />
+        <activity android:name=".thirdpartlibs.okhttp.OkhttpDemoActivity" />
+        <activity android:name=".thirdpartlibs.workmanager.WorkManagerDemoActivity" />
+        <activity android:name=".thirdpartlibs.glide.GlideDemoActivity" />
         <activity android:name=".thirdpartlibs.room.RoomActivity" />
+
+        <activity android:name=".android.contentprovider.demo.MainActivity" />
+        <activity android:name=".kotlin.coroutines.CoroutinesDemoActivity" />
+        <activity android:name=".kotlin.flow.FlowDemoActivity" />
+        <activity android:name=".android.file.FileDemoActivity" />
+        <activity android:name=".android.notification.NotificationActivity" />
+        <activity
+            android:name=".android.activity.MyDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".android.activity.BaseLifecycleTestActivity" />
+        <activity
+            android:name=".android.activity.BActivity"
+            android:label="B_Activity" />
+        <activity
+            android:name=".android.activity.AActivity"
+            android:label="A_Activity" />
+        <activity
+            android:name=".android.activity.LifecycleTestActivity"
+            android:label="Lifecycle Test" />
+        <activity
+            android:name=".CoreApisMainActivity"
+            android:label="Core Apis" />
+        <activity
+            android:name=".java.thread.ThreadDemoActivity"
+            android:label="Thread Demos" />
+        <activity
+            android:name=".navigation.NavigationDemoActivity"
+            android:label="@string/title_activity_coroutines"
+            android:theme="@style/Theme.DemosAndroidCoreLibs.NoActionBar" />
+        <activity
+            android:name=".thirdpartlibs.retrofit.RetrofitActivity"
+            android:label="Retrofit" />
+        <activity
+            android:name=".android.contentprovider.ContentProviderActivity"
+            android:label="ContentProvider" />
 
         <provider
             android:name=".android.contentprovider.demo.MyContentProvider"
             android:authorities="com.picture.provider"
             android:exported="true" />
+
         <provider
             android:name=".android.contentprovider.demo.MyFileProvider"
             android:authorities="com.lizw.demos.my_flie_provider"
             android:enabled="true"
             android:exported="true" />
-
-        <activity
-            android:name=".android.contentprovider.demo.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".kotlin.coroutines.CoroutinesDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".kotlin.flow.FlowDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".android.file.FileDemoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".android.notification.NotificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".android.activity.MyDialogActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity
-            android:name=".android.activity.BaseLifecycleTestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".android.activity.BActivity"
-            android:exported="false"
-            android:label="B_Activity" />
-        <activity
-            android:name=".android.activity.AActivity"
-            android:exported="false"
-            android:label="A_Activity" />
-        <activity
-            android:name=".android.activity.LifecycleTestActivity"
-            android:exported="false"
-            android:label="Lifecycle Test" />
-        <activity
-            android:name=".CoreApisMainActivity"
-            android:exported="true"
-            android:label="Core Apis" />
-        <activity
-            android:name=".java.thread.ThreadDemoActivity"
-            android:exported="false"
-            android:label="Thread Demos" />
-        <activity
-            android:name=".navigation.NavigationDemoActivity"
-            android:exported="false"
-            android:label="@string/title_activity_coroutines"
-            android:theme="@style/Theme.DemosAndroidCoreLibs.NoActionBar" />
-        <activity
-            android:name=".thirdpartlibs.retrofit.RetrofitActivity"
-            android:exported="false"
-            android:label="Retrofit" />
-        <activity
-            android:name=".android.contentprovider.ContentProviderActivity"
-            android:label="ContentProvider" />
 
         <provider
             android:name=".android.contentprovider.MyProvider"
