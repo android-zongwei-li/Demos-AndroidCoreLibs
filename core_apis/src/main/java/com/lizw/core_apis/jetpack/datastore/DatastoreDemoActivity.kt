@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.datastore
+package com.lizw.core_apis.jetpack.datastore
 
 import android.os.Bundle
 import android.util.Log
@@ -34,7 +34,7 @@ class DatastoreDemoActivity : AppCompatActivity() {
     // store data
     fun saveText(dataStore: DataStore<Preferences>, content: String) {
         lifecycleScope.launch(Dispatchers.IO) {
-            val textKey = stringPreferencesKey(DATA_STORE_KEY_TEXT)
+            val textKey = stringPreferencesKey(com.lizw.core_apis.jetpack.datastore.DatastoreDemoActivity.Companion.DATA_STORE_KEY_TEXT)
             dataStore.edit { settings ->
                 settings[textKey] = content
             }
@@ -44,7 +44,7 @@ class DatastoreDemoActivity : AppCompatActivity() {
     // read data
     fun getText(dataStore: DataStore<Preferences>) {
         lifecycleScope.launch(Dispatchers.IO) {
-            val textKey = stringPreferencesKey(DATA_STORE_KEY_TEXT)
+            val textKey = stringPreferencesKey(com.lizw.core_apis.jetpack.datastore.DatastoreDemoActivity.Companion.DATA_STORE_KEY_TEXT)
             dataStore.edit { settings ->
                 val text = settings[textKey]
                 println("name is $text")

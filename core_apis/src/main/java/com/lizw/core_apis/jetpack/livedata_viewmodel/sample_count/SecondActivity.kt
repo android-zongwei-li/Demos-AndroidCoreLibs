@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.livedata_viewmodel.sample_count
+package com.lizw.core_apis.jetpack.livedata_viewmodel.sample_count
 
 import android.os.Bundle
 import android.widget.Button

@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.livedata_viewmodel.sample_count
+package com.lizw.core_apis.jetpack.livedata_viewmodel.sample_count
 
 import android.content.Intent
 import android.os.Bundle

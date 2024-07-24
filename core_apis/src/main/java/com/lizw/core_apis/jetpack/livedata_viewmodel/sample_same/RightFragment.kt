@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.livedata_viewmodel.sample_same
+package com.lizw.core_apis.jetpack.livedata_viewmodel.sample_same
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,25 +9,25 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.lizw.core_apis.R
 
-class LeftFragment : Fragment() {
+class RightFragment : Fragment() {
     private val viewModel: BlankViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_left, container, false)
+        return inflater.inflate(R.layout.fragment_right, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val leftButton: Button = view.findViewById(R.id.left_button)
-        val leftText: Button = view.findViewById(R.id.left_text)
-        leftButton.setOnClickListener {
+        val rightButton: Button = view.findViewById(R.id.right_button)
+        val rightText: Button = view.findViewById(R.id.right_text)
+        rightButton.setOnClickListener {
             viewModel.addOne()
         }
         activity?.let { it ->
             viewModel.getLiveData().observe(it) {
-                leftText.text = it.toString()
+                rightText.text = it.toString()
             }
         }
     }

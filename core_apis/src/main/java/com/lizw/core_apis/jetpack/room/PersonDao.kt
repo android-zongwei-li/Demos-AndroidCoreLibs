@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.room
+package com.lizw.core_apis.jetpack.room
 
 import androidx.room.Dao
 import androidx.room.Delete

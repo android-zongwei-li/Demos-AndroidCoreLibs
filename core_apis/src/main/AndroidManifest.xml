@@ -6,21 +6,21 @@
 
     <application>
 
-        <activity android:name=".thirdpartlibs.livedata_viewmodel.sample_count.CountActivity" />
-        <activity android:name=".thirdpartlibs.livedata_viewmodel.sample_same.MainTwoActivity" />
-        <activity android:name=".thirdpartlibs.livedata_viewmodel.LiveDataViewModelDemoActivity" />
-        <activity android:name=".thirdpartlibs.livedata_viewmodel.sample_count.SecondActivity" />
+        <activity android:name=".jetpack.livedata_viewmodel.sample_count.CountActivity" />
+        <activity android:name=".jetpack.livedata_viewmodel.sample_same.MainTwoActivity" />
+        <activity android:name=".jetpack.livedata_viewmodel.LiveDataViewModelDemoActivity" />
+        <activity android:name=".jetpack.livedata_viewmodel.sample_count.SecondActivity" />
+        <activity android:name=".jetpack.workmanager.WorkManagerDemoActivity" />
+        <activity android:name=".jetpack.room.RoomActivity" />
 
         <activity android:name=".thirdpartlibs.leakcanary.LeakDemoActivity" />
         <activity android:name=".android.hotfix.DexClassLoaderHotfixActivity" />
-        <activity android:name=".thirdpartlibs.datastore.DatastoreDemoActivity" />
+        <activity android:name=".jetpack.datastore.DatastoreDemoActivity" />
         <activity android:name=".BaseListOfBtnsActivity" />
         <activity android:name=".thirdpartlibs.leakcanary.LeakCanaryDemoActivity" />
         <activity android:name=".thirdpartlibs.glide.GlideDemo2Activity" />
         <activity android:name=".thirdpartlibs.okhttp.OkhttpDemoActivity" />
-        <activity android:name=".thirdpartlibs.workmanager.WorkManagerDemoActivity" />
         <activity android:name=".thirdpartlibs.glide.GlideDemoActivity" />
-        <activity android:name=".thirdpartlibs.room.RoomActivity" />
 
         <activity android:name=".android.contentprovider.demo.MainActivity" />
         <activity android:name=".kotlin.coroutines.CoroutinesDemoActivity" />

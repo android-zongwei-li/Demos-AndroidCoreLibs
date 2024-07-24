@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.workmanager
+package com.lizw.core_apis.jetpack.workmanager
 
 import android.app.PendingIntent
 import android.content.Context

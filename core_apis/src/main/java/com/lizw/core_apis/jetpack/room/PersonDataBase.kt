@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.room
+package com.lizw.core_apis.jetpack.room
 
 import android.content.Context
 import android.util.Log

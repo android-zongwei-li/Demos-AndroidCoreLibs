@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.datastore
+package com.lizw.core_apis.jetpack.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore

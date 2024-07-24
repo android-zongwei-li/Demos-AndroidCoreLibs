@@ -1,4 +1,4 @@
-package com.lizw.core_apis.thirdpartlibs.livedata_viewmodel.sample_same
+package com.lizw.core_apis.jetpack.livedata_viewmodel.sample_same
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
