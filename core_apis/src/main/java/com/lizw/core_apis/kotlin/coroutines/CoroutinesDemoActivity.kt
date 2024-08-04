@@ -3,11 +3,8 @@ package com.lizw.core_apis.kotlin.coroutines
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewGroup
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.lizw.core_apis.databinding.ActivityCoroutinesDemoBinding
+import com.lizw.core_apis.BaseListOfBtnsActivity
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -15,7 +12,9 @@ import kotlinx.coroutines.CoroutineName
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
@@ -33,74 +32,22 @@ import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlin.system.measureTimeMillis
 
-class CoroutinesDemoActivity : AppCompatActivity(),
+class CoroutinesDemoActivity : BaseListOfBtnsActivity(),
     // 通过委托模式让 Activity 实现 CoroutineScope 接口，
     // 从而可以在 Activity 内直接启动协程而不必显示地指定它们的上下文，
     // 并且在 `onDestroy()`中自动取消所有协程
     CoroutineScope by CoroutineScope(Dispatchers.Default) {
-    private val binding by lazy {
-        ActivityCoroutinesDemoBinding.inflate(layoutInflater)
-    }
+//    private val binding by lazy {
+//        ActivityCoroutinesDemoBinding.inflate(layoutInflater)
+//    }
 
     private fun log(tag: String, msg: Any) =
         Log.i(tag, "[${Thread.currentThread().name}] $msg")
 
-    private val techsList = listOf(
-        "basic", "test_suspend_withContext",
-        "GlobeScope", "runBlocking", "test_coroutineScope",         // 作用域
-        "test_supervisorScope", "test_CoroutineScopeException",
-        "test_job", "test_async", "test_coroutineDispatcher",
-        "test_coroutineContext", "test_cancel", "test_cancel_2", "test_cancel_3",
-        "test_cancel_4", "test_parent_children_coroutine", "test_cancel_5",
-        "test_withTimeout", "test_withTimeoutOrNull", "test_exception",
-        "testReturn", "", "",
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+//        setContentView(binding.root)
 
-        techsList.onEach { item ->
-            val btn = Button(this).apply {
-                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 100)
-                text = item
-                isAllCaps = false
-
-                val exceptionHandler = CoroutineExceptionHandler { _, e ->
-                    Log.e("test_协程中的异常", "异常信息: ${e.message}")
-                }
-                setOnClickListener {
-                    lifecycleScope.launch(exceptionHandler) {
-                        when (item) {
-                            // 创建操作符
-                            techsList[0] -> basicUse()
-                            techsList[1] -> test_suspend_withContext()
-                            techsList[2] -> test_GlobeScope()
-                            techsList[3] -> test_runBlocking()
-                            techsList[4] -> test_coroutineScope()
-                            techsList[5] -> test_supervisorScope()
-                            techsList[6] -> test_CoroutineScopeException()
-                            techsList[7] -> test_job()
-                            techsList[8] -> test_async()
-                            techsList[9] -> test_coroutineDispatcher()
-                            techsList[10] -> test_coroutineContext()
-                            techsList[11] -> test_cancel()
-                            techsList[12] -> test_cancel_2()
-                            techsList[13] -> test_cancel_3()
-                            techsList[14] -> test_cancel_4()
-                            techsList[15] -> test_parent_children_coroutine()
-                            techsList[16] -> test_cancel_5()
-                            techsList[17] -> test_withTimeout()
-                            techsList[18] -> test_withTimeoutOrNull()
-                            techsList[19] -> test_exception()
-                            techsList[20] -> testReturn()
-                        }
-                    }
-                }
-
-            }
-            binding.container.addView(btn)
-        }
 
         // 测试 CoroutineScope 对协程生命周期的管理
         // tag：协程1
@@ -114,6 +61,27 @@ class CoroutinesDemoActivity : AppCompatActivity(),
             log("test_lifecycle", "Activity Created")
         }
         // testCoroutineLifecycle()
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun test_CoroutineStart(tag: String = "test_CoroutineStart") {
+        lifecycleScope.launch {
+            // main
+
+            launch {
+                // main
+                log(tag, "CoroutineStart1")
+            }
+
+            launch(Dispatchers.Default) {
+                // default
+                log(tag, "CoroutineStart2")
+            }
+            launch(Dispatchers.Default, start = CoroutineStart.ATOMIC) {
+                // main
+                log(tag, "CoroutineStart.ATOMIC")
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -131,7 +99,7 @@ class CoroutinesDemoActivity : AppCompatActivity(),
             delay(1000)
             log(tag, "launch")
         }
-        GlobalScope.launch(context = Dispatchers.IO) {
+        val job = GlobalScope.launch(context = Dispatchers.IO) {
             log(tag, "b launch start")
         }
         log(tag, "end")
@@ -152,7 +120,7 @@ class CoroutinesDemoActivity : AppCompatActivity(),
             // 下面拿到结果就可以更新 UI 了
             log(tag, "result = $result")
         }
-        log(tag,"主线程并没有被上面的协程阻塞")
+        log(tag, "主线程并没有被上面的协程阻塞")
     }
 
     /**
@@ -210,13 +178,16 @@ class CoroutinesDemoActivity : AppCompatActivity(),
         fun log(msg: String) = log(tag, msg)
 
         runBlocking {
+            log("CoroutineScope1 is $this")
             launch {
+                log("CoroutineScope2 is $this")
                 delay(100)
                 log("Task from runBlocking")
             }
 
             // coroutineScope 是一个挂起函数
             coroutineScope {
+                log("CoroutineScope3 is $this")
                 launch {
                     delay(500)
                     log("Task from nested launch")
@@ -283,10 +254,12 @@ class CoroutinesDemoActivity : AppCompatActivity(),
         val time = measureTimeMillis {
             runBlocking {
                 val asyncA = async {
+                    log(tag, "1")
                     delay(3000)
                     1
                 }
                 val asyncB = async {
+                    log(tag, "2")
                     delay(4000)
                     2
                 }
@@ -575,7 +548,36 @@ class CoroutinesDemoActivity : AppCompatActivity(),
             val job = GlobalScope.launch(handler) {
                 throw AssertionError()
             }
+            try {
+                deferred.await()
+            } catch (e: Exception) {
+                log(tag, e)
+            }
             joinAll(job, deferred)
+        }
+    }
+
+    fun test_exception1(tag: String = "test_exception1") {
+        fun log(msg: String) = log(tag, msg)
+
+        val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+            log(throwable.toString())
+        }
+        CoroutineScope(Dispatchers.Default + Job() + exceptionHandler).launch {
+            val a = launch {
+                try {
+                    throw IllegalArgumentException("job 中抛出异常")
+                } catch (e: Exception) {
+                    log("a exception is try/catch, $e")
+                }
+            }
+            val b = launch {
+                delay(1000)
+                log("另一个协程")
+            }
+            b.invokeOnCompletion {
+                log("b onCompletion, throwable is $it")
+            }
         }
     }
 
@@ -595,5 +597,70 @@ class CoroutinesDemoActivity : AppCompatActivity(),
             "我是返回值"
         }
         log("asyncJob", "$asyncJob")
+    }
+
+
+    override fun getItems(): List<String> {
+        return listOf(
+            "basic",
+            "test_suspend_withContext",
+            "GlobeScope",
+            "runBlocking",
+            "test_coroutineScope",         // 作用域
+            "test_supervisorScope",
+            "test_CoroutineScopeException",
+            "test_job",
+            "test_async",
+            "test_coroutineDispatcher",
+            "test_coroutineContext",
+            "test_cancel",
+            "test_cancel_2",
+            "test_cancel_3",
+            "test_cancel_4",
+            "test_parent_children_coroutine",
+            "test_cancel_5",
+            "test_withTimeout",
+            "test_withTimeoutOrNull",
+            "test_exception",
+            "test_exception1",
+            "testReturn",
+            "test_CoroutineStart",
+            "",
+        )
+    }
+
+    private val exceptionHandler = CoroutineExceptionHandler { _, e ->
+        Log.e("test_协程中的异常", "异常信息: ${e.message}")
+    }
+
+    override fun onItemClick(itemName: String) {
+        lifecycleScope.launch(exceptionHandler) {
+            when (itemName) {
+                // 创建操作符
+                "basic" -> basicUse()
+                "test_suspend_withContext" -> test_suspend_withContext()
+                "GlobeScope" -> test_GlobeScope()
+                "runBlocking" -> test_runBlocking()
+                "test_coroutineScope" -> test_coroutineScope()
+                "test_supervisorScope" -> test_supervisorScope()
+                "test_CoroutineScopeException" -> test_CoroutineScopeException()
+                "test_job" -> test_job()
+                "test_async" -> test_async()
+                "test_coroutineDispatcher" -> test_coroutineDispatcher()
+                "test_coroutineContext" -> test_coroutineContext()
+                "test_cancel" -> test_cancel()
+                "test_cancel_2" -> test_cancel_2()
+                "test_cancel_3" -> test_cancel_3()
+                "test_cancel_4" -> test_cancel_4()
+                "test_parent_children_coroutine" -> test_parent_children_coroutine()
+                "test_cancel_5" -> test_cancel_5()
+                "test_withTimeout" -> test_withTimeout()
+                "test_withTimeoutOrNull" -> test_withTimeoutOrNull()
+                "test_exception" -> test_exception()
+                "test_exception1" -> test_exception1()
+                "testReturn" -> testReturn()
+                "test_CoroutineStart" -> test_CoroutineStart()
+            }
+        }
     }
 }

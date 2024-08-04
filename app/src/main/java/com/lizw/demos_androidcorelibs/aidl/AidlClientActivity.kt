@@ -1,127 +1,110 @@
 package com.lizw.demos_androidcorelibs.aidl
 
-import android.content.ComponentName
-import android.content.Intent
-import android.content.ServiceConnection
+import android.os.Binder
 import android.os.Bundle
-import android.os.IBinder
+import android.os.ParcelFileDescriptor
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.lizw.aidlserver.aidlsdk.person.IOnPersonChangeListener
+import com.lizw.aidlserver.aidlsdk.person.PersonManager
 import com.lizw.demos_androidcorelibs.databinding.ActivityAidlClientBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 class AidlClientActivity : AppCompatActivity() {
-    // RemoteService
-    private var remoteService: com.lizw.aidlserver.aidlsdk.IRemoteService? = null
-    
-    private val remoteServiceConnection: ServiceConnection = object : ServiceConnection {
-        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            remoteService = com.lizw.aidlserver.aidlsdk.IRemoteService.Stub.asInterface(service)
-            remoteService?.apply {
-                Toast.makeText(this@AidlClientActivity, "server pid = $pid", Toast.LENGTH_LONG).show()
-            }
-        }
-        
-        override fun onServiceDisconnected(name: ComponentName?) {
-            Log.e("ServiceConnection", "Service has unexpectedly disconnected")
-            remoteService = null
-        }
+    companion object {
+        private const val TAG = "AidlClientActivity"
     }
-    
-    // BookService
-    private var bookService: com.lizw.aidlserver.aidlsdk.book.IBookService? = null
-    
-    private val bookServiceConnection: ServiceConnection = object : ServiceConnection {
-        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            bookService = com.lizw.aidlserver.aidlsdk.book.IBookService.Stub.asInterface(service)
-            bookService?.apply {
-                Log.i("bookServiceConnection", "${bookInfo.name},${bookInfo.price}")
-                Toast.makeText(
-                        this@AidlClientActivity,
-                        "${bookInfo.name},${bookInfo.price}",
-                        Toast.LENGTH_LONG
-                ).show()
-                val book = com.lizw.aidlserver.aidlsdk.book.BookInfo().apply {
-                    this.name = "老人与海"
-                    this.price = 22
-                    this.type = 3
-                }
-                Log.i("bookServiceConnection", isExist(book).toString())
-            }
-        }
-        
-        override fun onServiceDisconnected(name: ComponentName?) {
-            Log.e("ServiceConnection", "Service has unexpectedly disconnected")
-            bookService = null
-        }
-    }
-    
-    // 通过aar依赖的方式，相较于在服务端、客户端分别创建文件夹、文件的方式，更便于接入，并且不需要build后才生成文件
-    private var personManagerService: com.lizw.aidlserver.aidlsdk.person.IPersonInfoManager? = null
-    private val personManagerServiceConnection: ServiceConnection = object : ServiceConnection {
-        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            personManagerService = com.lizw.aidlserver.aidlsdk.person.IPersonInfoManager.Stub.asInterface(service)
-            Log.i("PersonManager", "connected")
-            
-            personManagerService?.howManyPersons()
-        }
-        
-        override fun onServiceDisconnected(name: ComponentName?) {
-            Toast.makeText(this@AidlClientActivity, "PersonManagerService Disconnected!", Toast.LENGTH_LONG).show()
-        }
-    }
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
         val viewBinding = ActivityAidlClientBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-        
-        viewBinding.btnBindRemoteService.setOnClickListener {
-            val intent = Intent().apply {
-                `package` = "com.lizw.aidlserver"
-                action = "com.lizw.aidlserver.RemoteService.action"
-            }
-            
-            bindService(intent, remoteServiceConnection, BIND_AUTO_CREATE)
+
+        viewBinding.btnBindPersonManagerService.setOnClickListener {
+            PersonManager.init(application)
         }
-        
-        viewBinding.btnBindBookService.setOnClickListener {
-            val intent = Intent().apply {
-                `package` = "com.lizw.aidlserver"
-                action = "com.lizw.aidlserver.BookService.action"
+
+        viewBinding.btnAddPerson.setOnClickListener {
+            val person = com.lizw.aidlserver.aidlsdk.person.Person().apply {
+                name = "Leo"
+                age = 19
             }
-            
-            bindService(intent, bookServiceConnection, BIND_AUTO_CREATE)
+            PersonManager.addPerson(person)
         }
-        
-        fun initPersonBusiness() {
-            viewBinding.btnBindPersonManagerService.setOnClickListener {
-                val intent = Intent().apply {
-                    `package` = "com.lizw.aidlserver"
-                    action = "com.lizw.aidlserver.action.PersonManagerService"
+
+        viewBinding.btnAddPersonChangeListener.setOnClickListener {
+            PersonManager.addOnPersonChangeListener(object : IOnPersonChangeListener.Stub() {
+                override fun onChange(p0: Int) {
+                    // p0 是人员总数
+                    Log.i(TAG, "onChange: PersonNum =  $p0")
                 }
-                
-                bindService(intent, personManagerServiceConnection, BIND_AUTO_CREATE)
+            })
+        }
+
+        viewBinding.btnSendData.setOnClickListener {
+            // 1024 * 1024 ： 将会传输失败，但不会报错
+            PersonManager.sendData(ByteArray(1024 * 1024))
+        }
+
+        viewBinding.btnGetBitmap.setOnClickListener {
+            val bitmap = PersonManager.getIcon() ?: return@setOnClickListener
+            Log.i(
+                TAG,
+                "getBitmap allocationByteCount : ${bitmap.allocationByteCount / 1024 / 1024} M"
+            )
+            viewBinding.ivIcon.setImageBitmap(bitmap)
+        }
+
+        viewBinding.btnGetList.setOnClickListener {
+            PersonManager.getPersonsList().apply {
+                Log.i(TAG, "getPersonsList: ${this.size}")
+            }.onEach {
+                Log.i(TAG, "getPersonsList each: ${it.name} ${it.age}")
             }
-            
-            viewBinding.btnAddPerson.setOnClickListener {
-                val person = com.lizw.aidlserver.aidlsdk.person.Person().apply {
-                    name = "Leo"
-                    age = 19
-                }
-                personManagerService?.addPerson(person)
+        }
+
+        viewBinding.btnGetMap.setOnClickListener {
+            PersonManager.getPersonsMap().apply {
+                Log.i(TAG, "getPersonsList: ${this.size}")
+            }.onEach {
+                Log.i(TAG, "getPersonsList each: ${it.key} ${it.value.name} ${it.value.age}")
             }
-            
-            viewBinding.btnAddPersonChangeListener.setOnClickListener {
-                personManagerService?.addOnPersonChangeListener(object : com.lizw.aidlserver.aidlsdk.person.IOnPersonChangeListener.Stub() {
-                    override fun onChange(p0: Int) {
-                        // p0 是人员总数
-                        Toast.makeText(this@AidlClientActivity, "PersonNum =  $p0", Toast.LENGTH_LONG).show()
+        }
+
+        viewBinding.btnGetBigFile.setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                Log.i(TAG, "btnGetBigFile start")
+                val pfd = PersonManager.getFileDescriptor()
+                Log.i(TAG, "btnGetBigFile : ${pfd.statSize}")
+                val file = File(cacheDir, "testFromServer.mp4")
+                try {
+                    val inputStream = ParcelFileDescriptor.AutoCloseInputStream(pfd)
+                    file.delete()
+                    file.createNewFile()
+                    val stream = FileOutputStream(file)
+                    val buffer = ByteArray(1024)
+                    // 将inputStream中的数据写入到file中
+                    while (true) {
+                        // 读取数据到缓冲区
+                        val len = inputStream.read(buffer)
+                        if (len == -1) {
+                            // 如果到达输入流的末尾，则退出循环
+                            break
+                        }
+                        stream.write(buffer, 0, len) // 将缓冲区中的数据写入输出流
                     }
-                })
+                    stream.close()
+                    pfd.close()
+                    Log.i(TAG, "btnGetBigFile end")
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
             }
         }
-        initPersonBusiness()
     }
 }

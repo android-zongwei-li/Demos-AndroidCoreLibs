@@ -1,63 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:padding="4dip">
 
-    <TextView
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:paddingBottom="4dip"
-        android:text="@string/remote_service_binding"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/btn_bind_remote_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bind_service"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_bind_book_service"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bind_book_service"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/unbind"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/unbind_service"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/kill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/kill_process"
-        android:textAllCaps="false" />
-
-
-    <TextView
-        android:id="@+id/callback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
+        android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:hint="@string/callback"
-        android:paddingTop="4dip"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/darker_gray"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:paddingBottom="4dip"
+            android:text="@string/remote_service_binding"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:id="@+id/unbind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unbind_service"
+            android:textAllCaps="false"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/kill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kill_process"
+            android:textAllCaps="false"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_bind_person_manager_service"
@@ -80,6 +55,56 @@
             android:text="添加人员变化回调"
             android:textAllCaps="false" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btn_send_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送数据"
+            android:textAllCaps="false" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:id="@+id/btn_get_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取List"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_get_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取Map"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_get_big_file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取大文件"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_get_bitmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取图片"
+            android:textAllCaps="false" />
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="200dp"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:id="@+id/callback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center_horizontal"
+            android:hint="@string/callback"
+            android:paddingTop="4dip"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

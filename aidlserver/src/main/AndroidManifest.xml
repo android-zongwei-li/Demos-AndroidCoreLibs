@@ -17,11 +17,6 @@
             </intent-filter>
         </service>
 
-        <service
-            android:name=".person.PersonInfoService"
-            android:enabled="true"
-            android:exported="true" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -31,27 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name=".book.BookService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.lizw.aidlserver.BookService.action" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-        <service
-            android:name=".RemoteService"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.lizw.aidlserver.RemoteService.action" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>

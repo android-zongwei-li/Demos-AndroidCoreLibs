@@ -5,23 +5,25 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application>
-
+        <activity
+            android:name=".android.AndroidDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".android.broadcast_receiver.BroadcastDemoActivity"
+            android:exported="false" />
         <activity android:name=".jetpack.livedata_viewmodel.sample_count.CountActivity" />
         <activity android:name=".jetpack.livedata_viewmodel.sample_same.MainTwoActivity" />
         <activity android:name=".jetpack.livedata_viewmodel.LiveDataViewModelDemoActivity" />
         <activity android:name=".jetpack.livedata_viewmodel.sample_count.SecondActivity" />
         <activity android:name=".jetpack.workmanager.WorkManagerDemoActivity" />
         <activity android:name=".jetpack.room.RoomActivity" />
-
         <activity android:name=".thirdpartlibs.leakcanary.LeakDemoActivity" />
         <activity android:name=".android.hotfix.DexClassLoaderHotfixActivity" />
         <activity android:name=".jetpack.datastore.DatastoreDemoActivity" />
-        <activity android:name=".BaseListOfBtnsActivity" />
         <activity android:name=".thirdpartlibs.leakcanary.LeakCanaryDemoActivity" />
         <activity android:name=".thirdpartlibs.glide.GlideDemo2Activity" />
         <activity android:name=".thirdpartlibs.okhttp.OkhttpDemoActivity" />
         <activity android:name=".thirdpartlibs.glide.GlideDemoActivity" />
-
         <activity android:name=".android.contentprovider.demo.MainActivity" />
         <activity android:name=".kotlin.coroutines.CoroutinesDemoActivity" />
         <activity android:name=".kotlin.flow.FlowDemoActivity" />
@@ -61,13 +63,11 @@
             android:name=".android.contentprovider.demo.MyContentProvider"
             android:authorities="com.picture.provider"
             android:exported="true" />
-
         <provider
             android:name=".android.contentprovider.demo.MyFileProvider"
             android:authorities="com.lizw.demos.my_flie_provider"
             android:enabled="true"
             android:exported="true" />
-
         <provider
             android:name=".android.contentprovider.MyProvider"
             android:authorities="com.lizw.myprovider"

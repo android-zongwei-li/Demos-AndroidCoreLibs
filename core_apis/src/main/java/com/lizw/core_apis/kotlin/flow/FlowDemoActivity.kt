@@ -8,7 +8,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
@@ -222,6 +221,7 @@ class FlowDemoActivity : BaseListOfBtnsActivity() {
 
         //创建
         val uiState = MutableStateFlow(0)
+
         //监听
         val job = CoroutineScope(Dispatchers.IO).launch {
             // 这里要放到一个CoroutineScope中，不然会阻塞整个协程，导致最后一行赋值操作执行不到
@@ -229,10 +229,12 @@ class FlowDemoActivity : BaseListOfBtnsActivity() {
                 println(value)
             }
         }
+
         // StateFlow，热流
         suspend fun test_stateFlow() {
             //赋值
             uiState.value = 1
+            uiState.tryEmit(1)
         }
 
         // SharedFlow，热流
@@ -259,8 +261,6 @@ class FlowDemoActivity : BaseListOfBtnsActivity() {
         }.collect { value ->
             println(value)
         }
-
-
 
         flowOf(1, 2, 3).flatMapConcat {
             // way1

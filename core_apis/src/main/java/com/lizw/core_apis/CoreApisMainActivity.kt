@@ -1,58 +1,30 @@
 package com.lizw.core_apis
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.lizw.common.ext.startActivityDefaultIntent
+import com.lizw.core_apis.android.AndroidDemoActivity
 import com.lizw.core_apis.android.activity.LifecycleTestActivity
 import com.lizw.core_apis.android.contentprovider.ContentProviderActivity
 import com.lizw.core_apis.android.file.FileDemoActivity
 import com.lizw.core_apis.android.notification.NotificationActivity
-import com.lizw.core_apis.databinding.ActivityCoreApisMainBinding
 import com.lizw.core_apis.java.thread.ThreadDemoActivity
 import com.lizw.core_apis.kotlin.coroutines.CoroutinesDemoActivity
+import com.lizw.core_apis.kotlin.flow.FlowDemoActivity
 import com.lizw.core_apis.navigation.NavigationDemoActivity
 import com.lizw.core_apis.thirdpartlibs.retrofit.RetrofitActivity
 
-class CoreApisMainActivity : AppCompatActivity() {
-    companion object {
-        private const val TAG = "MainActivity"
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = ActivityCoreApisMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.btnStartActivityCoroutines.setOnClickListener {
-            startActivityDefaultIntent(NavigationDemoActivity::class.java)
-        }
-
-        binding.btnStartRetrofitActivity.setOnClickListener {
-            startActivityDefaultIntent(RetrofitActivity::class.java)
-        }
-
-        binding.btnStartActivityThread.setOnClickListener {
-            startActivityDefaultIntent(ThreadDemoActivity::class.java)
-        }
-
-        binding.btnStartContentProvider.setOnClickListener {
-            startActivityDefaultIntent(ContentProviderActivity::class.java)
-        }
-
-        binding.btnStartActivityLifecycle.setOnClickListener {
-            startActivityDefaultIntent(LifecycleTestActivity::class.java)
-        }
-
-        binding.btnStartNotification.setOnClickListener {
-            startActivityDefaultIntent(NotificationActivity::class.java)
-        }
-
-        binding.btnCoroutine.setOnClickListener {
-            startActivityDefaultIntent(CoroutinesDemoActivity::class.java)
-        }
-
-        binding.btnFile.setOnClickListener {
-            startActivityDefaultIntent(FileDemoActivity::class.java)
-        }
+class CoreApisMainActivity : BaseListOfBtnsV2Activity() {
+    override fun getItems(): Map<String, () -> Unit> {
+        return mapOf(
+            "导航" to { startActivityDefaultIntent(NavigationDemoActivity::class.java) },
+            "Retrofit" to { startActivityDefaultIntent(RetrofitActivity::class.java) },
+            "线程示例" to { startActivityDefaultIntent(ThreadDemoActivity::class.java) },
+            "ContentProvider" to { startActivityDefaultIntent(ContentProviderActivity::class.java) },
+            "ActivityLifecycle" to { startActivityDefaultIntent(LifecycleTestActivity::class.java) },
+            "消息通知" to { startActivityDefaultIntent(NotificationActivity::class.java) },
+            "协程" to { startActivityDefaultIntent(CoroutinesDemoActivity::class.java) },
+            "Flow" to { startActivityDefaultIntent(FlowDemoActivity::class.java) },
+            "文件" to { startActivityDefaultIntent(FileDemoActivity::class.java) },
+            "Android" to { startActivityDefaultIntent(AndroidDemoActivity::class.java) },
+        )
     }
 }

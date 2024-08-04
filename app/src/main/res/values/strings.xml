@@ -3,7 +3,6 @@
 
 
 
-    <string name="bind_service">Bind Service</string>
     <string name="unbind_service">Unbind Service</string>
 
     <string name="remote_service_binding">这个Demo演示了如何连接到另一个进程中的服务。展示了Aidl的基本使用作用，
@@ -15,6 +14,4 @@
     <string name="remote_service_unbind_disconn">Unbinding due to disconnect</string>
     <string name="remote_call_failed">Failure calling remote service</string>
     <string name="callback">callback</string>
-
-    <string name="bind_book_service">bind book service</string>
 </resources>
