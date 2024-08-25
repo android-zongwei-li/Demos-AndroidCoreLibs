@@ -7,7 +7,7 @@ import android.util.AttributeSet
 /**
  */
 class OneGlSurfaceView : GLSurfaceView {
-    private val mRenderer: OneGlRenderer = OneGlRenderer()
+    // private val mRenderer: OneGlRenderer = OneGlRenderer()
     
     constructor(context: Context) : this(context, null)
     
@@ -15,6 +15,9 @@ class OneGlSurfaceView : GLSurfaceView {
         // Create an OpenGL ES 2.0 context
         setEGLContextClientVersion(2)
         // Set the Renderer for drawing on the GLSurfaceView
+        
+        val mRenderer = ATextureRenderer(context)
+        
         setRenderer(mRenderer)
     }
 }
