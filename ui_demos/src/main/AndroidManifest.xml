@@ -6,6 +6,9 @@
 
     <application android:networkSecurityConfig="@xml/network_config">
         <activity
+            android:name=".opengl.OpenGLDemoActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImmersiveStatusBarActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
