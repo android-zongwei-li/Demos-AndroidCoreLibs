@@ -38,7 +38,7 @@
 
         <activity
             android:name="com.lizw.demos_androidcorelibs.aidl.AidlClientActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

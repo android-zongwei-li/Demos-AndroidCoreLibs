@@ -13,7 +13,7 @@ class WeatherHScrollView : HorizontalScrollView {
     
     private var weatherView: WeatherView? = null
     
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         // 滑块当前偏移
         val offset = computeHorizontalScrollOffset()

@@ -6,6 +6,13 @@
 
     <application android:networkSecurityConfig="@xml/network_config">
         <activity
+            android:name=".ImmersiveStatusBarActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ProgressBarActivity"
+            android:exported="false" />
+        <activity
             android:name=".webview.WebViewActivity"
             android:exported="false" />
         <activity

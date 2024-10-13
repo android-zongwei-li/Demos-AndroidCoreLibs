@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         // lib module 不能设置 applicationId
 //        applicationId "com.lizw.ui_demos"
-        minSdk 21
-        targetSdk 33
+        minSdk 24
+        targetSdk 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,5 +38,10 @@ android {
 dependencies {
     implementation project(path: ':common')
 
+
+    // https://maven.google.com/web/index.html 这里查阅版本号
+
     implementation libs.bundles.moduleUiDemos
+
+    implementation "androidx.activity:activity-ktx:1.9.2"
 }

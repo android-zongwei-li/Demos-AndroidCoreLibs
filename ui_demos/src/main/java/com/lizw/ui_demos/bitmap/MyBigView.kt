@@ -244,10 +244,10 @@ class MyBigView : View, GestureDetector.OnGestureListener, OnTouchListener {
      * @return
      */
     override fun onScroll(
-        e1: MotionEvent,
+        e1: MotionEvent?,
         e2: MotionEvent,
         distanceX: Float,
-        distanceY: Float,
+        distanceY: Float
     ): Boolean {
         //上下移动时，改变Rect显示区域
         mRect.offset(0, distanceY.toInt())
@@ -281,10 +281,10 @@ class MyBigView : View, GestureDetector.OnGestureListener, OnTouchListener {
      * @return
      */
     override fun onFling(
-        e1: MotionEvent,
+        e1: MotionEvent?,
         e2: MotionEvent,
         velocityX: Float,
-        velocityY: Float,
+        velocityY: Float
     ): Boolean {
         mScroller.fling(0, mRect.top, 0, (-velocityY).toInt(), 0, 0,
             0, mOriginalImageHeight - (mViewHeight / mScale).toInt())
