@@ -14,5 +14,6 @@ class ProgressBarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.specialProgressBar01.currentProgress = 3 / 6f
     }
 }

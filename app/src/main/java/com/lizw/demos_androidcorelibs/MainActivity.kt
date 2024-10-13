@@ -4,20 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import com.lizw.core_apis.BaseListOfBtnsV2Activity
 import com.lizw.core_apis.CoreApisMainActivity
-import com.lizw.core_apis.kotlin.flow.FlowDemoActivity
 import com.lizw.demos_androidcorelibs.aidl.AidlClientActivity
 import com.lizw.demos_androidcorelibs.broadcastreceiver.InstallUninstallBroadcastReceiver
+import com.lizw.ui_demos.ImmersiveStatusBarActivity
+import com.lizw.ui_demos.ProgressBarActivity
 import com.lizw.ui_demos.UiHomeActivity
 
 /**
  * 是否在debug
  */
-const val debug = false
+const val debug = true
 
 /**
  * 在debug模式下，指定要debug的页面，用于快速启动
  */
-val debug_activity = FlowDemoActivity::class.java
+val debug_activity = ProgressBarActivity::class.java
 
 class MainActivity : BaseListOfBtnsV2Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
